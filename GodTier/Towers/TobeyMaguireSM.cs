@@ -29,7 +29,7 @@ namespace GodlyTowers.Towers {
                 LocalizationManager.Instance.textTable.Add("Sacrifices Description", "Sometimes, to do what's right, we have to be steady and give up the thing we want the most. Even our dreams.");
             if (!LocalizationManager.Instance.textTable.ContainsKey("Just The Basics Description"))
                 LocalizationManager.Instance.textTable.Add("Just The Basics Description", "Uncle Ben meant the world to us, but he wouldn't want us living one second with revenge in our hearts. It's like a poison.");
-            if (!LocalizationManager.Instance.textTable.ContainsKey("Symbiote Suit"))
+            if (!LocalizationManager.Instance.textTable.ContainsKey("Symbiote Suit Description"))
                 LocalizationManager.Instance.textTable.Add("Symbiote Suit Description", "I know how It feels like, It feels good. The power, everything... but you'll lose yourself, let it go...");
 
             return (GetT0(gameModel), spidermanDetails, new[] { GetT0(gameModel), GetT1(gameModel), GetT2(gameModel), GetT3(gameModel), GetT4(gameModel), GetT5(gameModel) }, GetUpgrades());
@@ -61,7 +61,7 @@ namespace GodlyTowers.Towers {
                         }
                     }
 
-                    att.weapons[0].name = "punch";
+                    att.weapons[0].name = "spidermanpunch";
                     att.weapons[0].projectile.pierce = 1;
                     att.weapons[0].rate = 1.75f;
                     att.weapons[0].behaviors = new WeaponBehaviorModel[0];
@@ -361,7 +361,7 @@ namespace GodlyTowers.Towers {
         }
 
 
-        public static void PlayAttack() => AudioFactory_CreateStartingSources.inst.PlaySoundFromUnity(null, "punch", "FX", 1, 0.4f, 0, false);
+        public static void PlayAttack() => AudioFactory_CreateStartingSources.inst.PlaySoundFromUnity(null, "spidermanpunch", "FX", 1, 0.4f, 0, false);
 
         [HarmonyPatch(typeof(AudioFactory), nameof(AudioFactory.Start))]
         public sealed class AudioFactory_CreateStartingSources {
@@ -370,8 +370,8 @@ namespace GodlyTowers.Towers {
             [HarmonyPostfix]
             public static void Prefix(AudioFactory __instance) {
                 inst = __instance;
-                if (!__instance.audioClips.ContainsKey("punch"))
-                    __instance.RegisterAudioClip("punch", Assets.LoadAsset("punch").Cast<AudioClip>());
+                if (!__instance.audioClips.ContainsKey("spidermanpunch"))
+                    __instance.RegisterAudioClip("spidermanpunch", Assets.LoadAsset("punch").Cast<AudioClip>());
             }
         }
 
@@ -434,7 +434,7 @@ namespace GodlyTowers.Towers {
                 if (__instance.attack.tower.Node.graphic == null) return;
 
                 try {
-                    if (__instance.weaponModel.name.EndsWith("punch")) {
+                    if (__instance.weaponModel.name.EndsWith("spidermanpunch")) {
                         __instance.attack.tower.Node.graphic.GetComponentInParent<Animator>().StopPlayback();
                         PlayPunchAnim(__instance.attack.tower, __instance.attack.target);
                         PlayAttack();

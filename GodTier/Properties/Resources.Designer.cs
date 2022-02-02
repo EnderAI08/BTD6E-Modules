@@ -303,6 +303,16 @@ namespace GodlyTowers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ThanosUBG {
+            get {
+                object obj = ResourceManager.GetObject("ThanosUBG", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] TMSUBG {
             get {
                 object obj = ResourceManager.GetObject("TMSUBG", resourceCulture);

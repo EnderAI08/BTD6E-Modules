@@ -160,6 +160,9 @@
   <data name="TMSUBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TMSUBG.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ThanosUBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ThanosUBG.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="MPPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MPPortrait.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

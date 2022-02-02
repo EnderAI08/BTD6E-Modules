@@ -429,12 +429,15 @@
     </Compile>
     <Compile Include="Towers\Grim_Reaper.cs" />
     <Compile Include="Towers\MiniPekka.cs" />
+    <Compile Include="Towers\Thanos.cs" />
     <Compile Include="Towers\TobeyMaguireSM.cs" />
     <Compile Include="Towers\Venom.cs" />
     <Compile Include="Towers\Godzilla.cs" />
     <Compile Include="Towers\Paragons.cs" />
     <Compile Include="Towers\Carnage.cs" />
     <Compile Include="Towers\SpiderMan.cs" />
+    <Compile Include="Util\ChromaBackground.cs" />
+    <Compile Include="Util\ChromaColor.cs" />
     <Compile Include="Util\SetScale.cs" />
   </ItemGroup>
   <ItemGroup>

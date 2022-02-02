@@ -1,6 +1,7 @@
 ﻿global using GodlyTowers.Util;
 global using GodlyTowers.Models;
 global using GodlyTowers.Towers;
+using UnityEngine;
 
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
 [assembly: MelonInfo(typeof(GodTier.GodTier), "God Tiers", "1.6", "1330 Studios LLC")]
@@ -15,6 +16,7 @@ namespace GodTier {
             Venom.Assets = AssetBundle.LoadFromMemory(Models.venom);
             MiniPekka.Assets = AssetBundle.LoadFromMemory(Models.minipekka);
             TobeyMaguireSM.Assets = AssetBundle.LoadFromMemory(Models.tobeymaguirespiderman);
+            Thanos.Assets = AssetBundle.LoadFromMemory(Models.thanos);
         }
 
         [HarmonyPatch(typeof(Btd6Player), "CheckForNewParagonPipEvent")]
@@ -99,7 +101,8 @@ namespace GodTier {
         public enum UpgradeBG {
             AntiVenom,
             MiniPekka,
-            SymbioteSuit
+            SymbioteSuit,
+            MindStone
         }
 
         [HarmonyPatch(typeof(ProfileModel), "Validate")]
@@ -143,6 +146,7 @@ namespace GodTier {
                 towers.Add(MiniPekka.GetTower(__result));
                 towers.Add(Grim_Reaper.GetTower(__result));
                 towers.Add(TobeyMaguireSM.GetTower(__result));
+                towers.Add(Thanos.GetTower(__result));
 
                 foreach (var paragon in paragons) {
                     __result.towers = __result.towers.Add(paragon.Item1);
@@ -192,6 +196,11 @@ namespace GodTier {
                                     resourceSprite = LoadSprite(LoadTextureFromBytes(GodlyTowers.Properties.Resources.TMSUBG));
                                     break;
                                 }
+                            case UpgradeBG.MindStone: {
+                                    resourceName = "MindStoneUBG";
+                                    resourceSprite = LoadSprite(LoadTextureFromBytes(GodlyTowers.Properties.Resources.ThanosUBG));
+                                    break;
+                                }
                         }
                         __instance.backgroundActive = new(resourceName);
                         __instance.background.overrideSprite = resourceSprite;
@@ -214,8 +223,10 @@ namespace GodTier {
                         return;
 
                     foreach (var graphicGenericRenderer in __instance.Node.graphic.genericRenderers)
-                        foreach (var item in graphicGenericRenderer.materials)
+                        foreach (var item in graphicGenericRenderer.materials) {
                             item.SetColor("_OutlineColor", Color.white);
+                            item.SetFloat("_OutlineActive", 1f);
+                        }
                 }
             }
 
@@ -227,8 +238,10 @@ namespace GodTier {
                         return;
 
                     foreach (var graphicGenericRenderer in __instance.Node.graphic.genericRenderers)
-                        foreach (var item in graphicGenericRenderer.materials)
+                        foreach (var item in graphicGenericRenderer.materials) {
                             item.SetColor("_OutlineColor", Color.black);
+                            item.SetFloat("_OutlineActive", 0f);
+                        }
                 }
             }
         }

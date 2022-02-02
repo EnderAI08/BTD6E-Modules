@@ -1,6 +1,6 @@
 ﻿namespace GodlyTowers.Towers {
     public class Paragons {
-        private static int index = 38;
+        private static int index = 39;
 
         public static (TowerModel, ShopTowerDetailsModel, string, TowerModel) GetDartMonkey(GameModel model) {
             var origParagon = model.towers.First(t => t.name.Equals("DartMonkey-Paragon"));

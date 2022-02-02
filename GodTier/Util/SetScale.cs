@@ -128,4 +128,25 @@
             }
         }
     }
+    [RegisterTypeInIl2Cpp]
+    public class SetScale9 : MonoBehaviour {
+        private readonly static float scale = 17;
+
+        public SetScale9(IntPtr obj0) : base(obj0) { ClassInjector.DerivedConstructorBody(this); }
+
+        public SetScale9() : base(ClassInjector.DerivedConstructorPointer<SetScale9>()) { }
+        private void Start() {
+            if (gameObject != null) {
+                if (gameObject.transform.localScale.z != scale)
+                    gameObject.transform.localScale = new(scale, scale, scale);
+            }
+        }
+
+        private void Update() {
+            if (gameObject != null) {
+                if (gameObject.transform.localScale.z != scale)
+                    gameObject.transform.localScale = new(scale, scale, scale);
+            }
+        }
+    }
 }
