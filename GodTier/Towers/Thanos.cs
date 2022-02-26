@@ -19,7 +19,7 @@ namespace GodlyTowers.Towers {
         public static (TowerModel, ShopTowerDetailsModel, TowerModel[], UpgradeModel[]) GetTower(GameModel gameModel) {
             var thanosDetails = gameModel.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             thanosDetails.towerId = name;
-            thanosDetails.towerIndex = 36;
+            thanosDetails.towerIndex = GlobalTowerIndex.Index;
 
             if (!LocalizationManager.Instance.textTable.ContainsKey("Space Stone Description"))
                 LocalizationManager.Instance.textTable.Add("Space Stone Description", "The Space Stone held dominion over the fabric of space being able to teleport its users anywhere in the universe.");

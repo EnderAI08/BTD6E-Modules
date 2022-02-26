@@ -13,7 +13,7 @@
         public static (TowerModel, ShopTowerDetailsModel, TowerModel[], UpgradeModel[]) GetTower(GameModel gameModel) {
             var minipekkaDetails = gameModel.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             minipekkaDetails.towerId = name;
-            minipekkaDetails.towerIndex = 37;
+            minipekkaDetails.towerIndex = GlobalTowerIndex.Index;
 
 
             if (!LocalizationManager.Instance.textTable.ContainsKey("MiniPekka"))
@@ -476,9 +476,8 @@
         public class UnityToSimulation_SellTower {
             [HarmonyPrefix]
             public static void Prefix(UnityToSimulation __instance, int id) {
-                if (__instance.GetTower(id) != null)
-                    if (__instance.GetTower(id)?.tower?.towerModel?.baseId == name)
-                        PlaySell();
+                if (__instance.GetTower(id) != null && __instance.GetTower(id)?.tower?.towerModel?.baseId == name)
+                    PlaySell();
             }
         }
 

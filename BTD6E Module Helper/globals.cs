@@ -80,4 +80,5 @@ global using Assets.Scripts.Models.Profile;
 global using Assets.Scripts.Unity.UI_New.InGame.TowerSelectionMenu;
 global using Assets.Scripts.Models.Effects;
 global using Assets.Scripts.Models.Towers.Filters;
+global using Assets.Scripts.Models.Audio;
 global using Assets.Scripts.Unity.Audio;

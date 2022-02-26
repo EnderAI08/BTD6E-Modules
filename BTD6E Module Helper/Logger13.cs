@@ -29,8 +29,9 @@ public sealed class Logger13 {
     public static void Log(string message) {
         Format();
         LogEvent(LastAssemblyName, null);
-        Console.ForegroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine(message);
+        Console.ResetColor();
     }
 
     public static void Warn(string message) {
@@ -38,6 +39,7 @@ public sealed class Logger13 {
         WarnEvent(LastAssemblyName, null);
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(message);
+        Console.ResetColor();
     }
 
     public static void Error(string message) {
@@ -45,5 +47,14 @@ public sealed class Logger13 {
         ErrorEvent(LastAssemblyName, null);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(message);
+        Console.ResetColor();
+    }
+
+    public static void Log(object message) {
+        Format();
+        LogEvent(LastAssemblyName, null);
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine(message.ToString());
+        Console.ResetColor();
     }
 }

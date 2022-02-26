@@ -11,7 +11,7 @@
     <AssemblyName>Godly Towers</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <LangVersion>10</LangVersion>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -427,8 +427,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Towers\BloonsTubers\BloonsTuberAssets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BloonsTuberAssets.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Towers\BloonsTubers\BloonsTuberBase.cs" />
+    <Compile Include="Towers\BloonsTubers\Tewtiy.cs" />
     <Compile Include="Towers\Grim_Reaper.cs" />
     <Compile Include="Towers\MiniPekka.cs" />
+    <Compile Include="Towers\Steve.cs" />
     <Compile Include="Towers\Thanos.cs" />
     <Compile Include="Towers\TobeyMaguireSM.cs" />
     <Compile Include="Towers\Venom.cs" />
@@ -438,6 +446,8 @@
     <Compile Include="Towers\SpiderMan.cs" />
     <Compile Include="Util\ChromaBackground.cs" />
     <Compile Include="Util\ChromaColor.cs" />
+    <Compile Include="Util\GlobalTowerIndex.cs" />
+    <Compile Include="Util\Rotate.cs" />
     <Compile Include="Util\SetScale.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -450,8 +460,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Towers\BloonsTubers\BloonsTuberAssets.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>BloonsTuberAssets.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BloonsTubers\Tewtiy\tewtiy.bundle" />
     <None Include="Resources\SMPortrait.png" />
   </ItemGroup>
   <ItemGroup>
@@ -462,6 +478,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SMPortrait3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CompressFully\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\BloonsTubers\Tewtiy\Banana.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\SplosiveNanners.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T1Overlay.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T1Upgrade.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T2Overlay.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T2Upgrade.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T3Overlay.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T3Upgrade.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T4Overlay.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T4Upgrade.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T5Overlay.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\T5Upgrade.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\Tewtiy.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\TewtiyPortrait.png" />
+    <Content Include="Resources\BloonsTubers\Tewtiy\TurboBananas.png" />
   </ItemGroup>
   <Import Project="..\BTD6E Module Helper\BTD6E Module Helper.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

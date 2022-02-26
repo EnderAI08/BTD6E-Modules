@@ -14,7 +14,7 @@ namespace GodlyTowers.Towers {
         public static (TowerModel, ShopTowerDetailsModel, TowerModel[], UpgradeModel[]) GetTower(GameModel gameModel) {
             var spidermanDetails = gameModel.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             spidermanDetails.towerId = name;
-            spidermanDetails.towerIndex = 33;
+            spidermanDetails.towerIndex = GlobalTowerIndex.Index;
 
 
             if (!LocalizationManager.Instance.textTable.ContainsKey("SpiderMan"))

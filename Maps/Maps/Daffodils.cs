@@ -56,8 +56,7 @@ namespace Maps.Maps {
                             new("Tree3", AreaTree3, 15, AreaType.unplaceable, isBlocker: true),
                             new("Tree4", AreaTree4, 15, AreaType.unplaceable, isBlocker: true)
                         }, new BlockerModel[0], new CoopAreaLayoutModel[] {
-                            new(new CoopAreaModel[] {new(0, AreaWhole, new())}, AreaLayoutType.FREE_FOR_ALL,
-                                new CoopAreaWhiteLineModel[0])
+                            new(new CoopAreaModel[] {new(0, AreaWhole, new())}, AreaLayoutType.FREE_FOR_ALL)
                         },
                         new PathModel[] {
                             new("Path1", Path1, true, false, new(-1000, -1000, -1000), new(-1000, -1000, -1000), null, null),

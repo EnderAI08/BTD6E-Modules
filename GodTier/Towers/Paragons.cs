@@ -1,7 +1,5 @@
 ﻿namespace GodlyTowers.Towers {
     public class Paragons {
-        private static int index = 39;
-
         public static (TowerModel, ShopTowerDetailsModel, string, TowerModel) GetDartMonkey(GameModel model) {
             var origParagon = model.towers.First(t => t.name.Equals("DartMonkey-Paragon"));
             var paragon = origParagon.Clone().Cast<TowerModel>();
@@ -22,7 +20,7 @@
 
             var paragonDetails = model.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             paragonDetails.towerId = "ParagonDartMonkey";
-            paragonDetails.towerIndex = ++index;
+            paragonDetails.towerIndex = GlobalTowerIndex.Index;
 
             return (paragon, paragonDetails, "DartMonkey", origParagon);
         }
@@ -47,7 +45,7 @@
 
             var paragonDetails = model.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             paragonDetails.towerId = "ParagonBoomerangMonkey";
-            paragonDetails.towerIndex = ++index;
+            paragonDetails.towerIndex = GlobalTowerIndex.Index;
 
             return (paragon, paragonDetails, "BoomerangMonkey", origParagon);
         }
@@ -72,7 +70,7 @@
 
             var paragonDetails = model.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             paragonDetails.towerId = "ParagonNinjaMonkey";
-            paragonDetails.towerIndex = ++index;
+            paragonDetails.towerIndex = GlobalTowerIndex.Index;
 
             return (paragon, paragonDetails, "NinjaMonkey", origParagon);
         }
@@ -98,9 +96,7 @@
 
             var paragonDetails = model.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             paragonDetails.towerId = "ParagonMonkeyBuccaneer";
-            paragonDetails.towerIndex = ++index;
-
-            FileIOUtil.SaveObject("navarch", origParagon);
+            paragonDetails.towerIndex = GlobalTowerIndex.Index;
 
             return (paragon, paragonDetails, "MonkeyBuccaneer", origParagon);
         }

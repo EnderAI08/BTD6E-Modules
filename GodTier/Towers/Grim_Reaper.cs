@@ -16,7 +16,7 @@
         public static (TowerModel, ShopTowerDetailsModel, TowerModel[], UpgradeModel[]) GetTower(GameModel gameModel) {
             var grimreaperDetails = gameModel.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             grimreaperDetails.towerId = name;
-            grimreaperDetails.towerIndex = 38;
+            grimreaperDetails.towerIndex = GlobalTowerIndex.Index;
 
             if (!LocalizationManager.Instance.textTable.ContainsKey("GrimReaper Description"))
                 LocalizationManager.Instance.textTable.Add("GrimReaper Description", "The Grim Reaper is personified frequently as the bringer of death. To bloons he is a bridge to the otherworld. He is ready at any moment to take any number of them across to their final destination.");

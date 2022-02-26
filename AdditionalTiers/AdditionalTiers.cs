@@ -78,24 +78,28 @@ namespace AdditionalTiers {
 
             if (InGame.instance == null || InGame.instance.bridge == null || InGame.instance.bridge.GetAllTowers() == null) return;
 
-            var allTowers = InGame.instance.bridge.GetAllTowers();
+            Logger13.Log(1);
             var allAdditionalTiers = Towers;
-            for (var indexOfTowers = 0; indexOfTowers < allTowers.Count; indexOfTowers++) {
-                var towerToSimulation = allTowers.ToArray()[indexOfTowers];
-                if (towerToSimulation != null && !towerToSimulation.destroyed)
+            for (var indexOfTowers = 0; indexOfTowers < InGame.instance.bridge.GetAllTowers().Count; indexOfTowers++) {
+                Logger13.Log(2);
+                var towerToSimulation = InGame.instance.bridge.GetAllTowers().ToArray()[indexOfTowers];
+                if (towerToSimulation?.destroyed == false) {
+                    Logger13.Log(3);
                     foreach (var addedTier in allAdditionalTiers) {
                         if (!addedTier.requirements(towerToSimulation)) continue;
 
+                        Logger13.Log(4);
                         var popsNeeded = (int) ((int) addedTier.tower * Globals.SixthTierPopCountMulti);
 
                         if (popsNeeded < towerToSimulation.damageDealt) {
                             if (!TransformationManager.VALUE.Contains(towerToSimulation.tower))
                                 addedTier.onComplete(towerToSimulation);
                             else if (TransformationManager.VALUE.Contains(towerToSimulation.tower)) addedTier.recurring(towerToSimulation);
-                        }
-                        else if (!TransformationManager.VALUE.Contains(towerToSimulation.tower))
+                        } else if (!TransformationManager.VALUE.Contains(towerToSimulation.tower)) {
                             ADisplay.towerdata.Add((addedTier.identifier, towerToSimulation.damageDealt, popsNeeded));
+                        }
                     }
+                }
             }
         }
     }

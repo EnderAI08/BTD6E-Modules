@@ -13,7 +13,7 @@
         public static (TowerModel, ShopTowerDetailsModel, TowerModel[], UpgradeModel[]) GetTower(GameModel gameModel) {
             var godzillaDetails = gameModel.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             godzillaDetails.towerId = name;
-            godzillaDetails.towerIndex = 32;
+            godzillaDetails.towerIndex = GlobalTowerIndex.Index;
 
 
             if (!LocalizationManager.Instance.textTable.ContainsKey("Atomic Blasts Description"))
@@ -482,7 +482,7 @@
                             }
 
                             __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("start");
-                        });
+                        }).Start();
                     }
                 } catch (Exception) { }
             }

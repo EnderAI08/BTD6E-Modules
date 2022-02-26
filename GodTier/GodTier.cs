@@ -1,7 +1,7 @@
 ﻿global using GodlyTowers.Util;
 global using GodlyTowers.Models;
 global using GodlyTowers.Towers;
-using UnityEngine;
+global using GodlyTowers.Towers.BloonsTubers;
 
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
 [assembly: MelonInfo(typeof(GodTier.GodTier), "God Tiers", "1.6", "1330 Studios LLC")]
@@ -17,6 +17,9 @@ namespace GodTier {
             MiniPekka.Assets = AssetBundle.LoadFromMemory(Models.minipekka);
             TobeyMaguireSM.Assets = AssetBundle.LoadFromMemory(Models.tobeymaguirespiderman);
             Thanos.Assets = AssetBundle.LoadFromMemory(Models.thanos);
+            Steve.Assets = AssetBundle.LoadFromMemory(Models.steve);
+
+            Tewtiy.PrototypeUDN_Patch.Init();
         }
 
         [HarmonyPatch(typeof(Btd6Player), "CheckForNewParagonPipEvent")]
@@ -31,6 +34,10 @@ namespace GodTier {
             public static bool Prefix(ref UpgradeScreen __instance, ref string towerId) {
                 foreach (var tower in towers)
                     if (towerId.Contains(tower.Item1.baseId)) {
+                        towerId = "DartMonkey";
+                    }
+                foreach (var tower in bloonstubers)
+                    if (towerId.Contains(tower.Item1[0].baseId)) {
                         towerId = "DartMonkey";
                     }
                 foreach (var paragon in paragons)
@@ -83,19 +90,21 @@ namespace GodTier {
             }
         }
 
-        public static Texture2D LoadTextureFromBytes(byte[] FileData) {
+        public static Texture2D LoadTextureFromBytes(byte[] FileData!!) {
             Texture2D Tex2D = new(64, 64);
             if (ImageConversion.LoadImage(Tex2D, FileData)) return Tex2D;
 
             return null;
         }
 
-        public static Sprite LoadSprite(Texture2D text) {
+        public static Sprite LoadSprite(Texture2D text!!) {
             return Sprite.Create(text, new(0, 0, text.width, text.height), new());
         }
 
         internal static List<(TowerModel, ShopTowerDetailsModel, string, TowerModel)> paragons = new();
         internal static List<(TowerModel, ShopTowerDetailsModel, TowerModel[], UpgradeModel[])> towers = new();
+        internal static List<(List<TowerModel>, List<UpgradeModel>, ShopTowerDetailsModel)> bloonstubers = new();
+
         internal static Dictionary<string, UpgradeBG> CustomUpgrades = new();
 
         public enum UpgradeBG {
@@ -113,19 +122,27 @@ namespace GodTier {
                 var unlockedUpgrades = __instance.acquiredUpgrades;
 
                 foreach (var paragon in paragons)
-                    if (paragon.Item1 != null)
-                        if (!unlockedTowers.Contains(paragon.Item1.baseId))
-                            unlockedTowers.Add(paragon.Item1.baseId);
+                    if (paragon.Item1 != null && !unlockedTowers.Contains(paragon.Item1.baseId))
+                        unlockedTowers.Add(paragon.Item1.baseId);
 
                 foreach (var tower in towers) {
-                    if (tower.Item1 != null)
-                        if (!unlockedTowers.Contains(tower.Item1.baseId))
-                            unlockedTowers.Add(tower.Item1.baseId);
+                    if (tower.Item1 != null && !unlockedTowers.Contains(tower.Item1.baseId))
+                        unlockedTowers.Add(tower.Item1.baseId);
 
                     foreach (var upgrade in tower.Item4)
-                        if (upgrade != null)
-                            if (!unlockedUpgrades.Contains(upgrade.name))
-                                unlockedUpgrades.Add(upgrade.name);
+                        if (upgrade != null && !unlockedUpgrades.Contains(upgrade.name))
+                            unlockedUpgrades.Add(upgrade.name);
+                }
+
+                foreach (var bloonstuber in bloonstubers) {
+                    foreach (var tower in bloonstuber.Item1) {
+                        if (!unlockedTowers.Contains(tower.baseId))
+                            unlockedTowers.Add(tower.baseId);
+                    }
+                    foreach (var upgrade in bloonstuber.Item2) {
+                        if (upgrade != null && !unlockedUpgrades.Contains(upgrade.name))
+                            unlockedUpgrades.Add(upgrade.name);
+                    }
                 }
 
             }
@@ -135,18 +152,23 @@ namespace GodTier {
         public sealed class GameStart {
             [HarmonyPostfix]
             public static void Postfix(ref GameModel __result) {
-                paragons.Add(Paragons.GetDartMonkey(__result));
-                paragons.Add(Paragons.GetBoomerangMonkey(__result));
-                paragons.Add(Paragons.GetNinjaMonkey(__result));
-                paragons.Add(Paragons.GetMonkeyBuccaneer(__result));
+                bloonstubers.Add(Tewtiy.InitializeTowers(ref __result));
+
                 towers.Add(Godzilla.GetTower(__result));
                 towers.Add(Spider_Man.GetTower(__result));
                 towers.Add(Carnage.GetTower(__result));
                 towers.Add(Venom.GetTower(__result));
-                towers.Add(MiniPekka.GetTower(__result));
-                towers.Add(Grim_Reaper.GetTower(__result));
                 towers.Add(TobeyMaguireSM.GetTower(__result));
                 towers.Add(Thanos.GetTower(__result));
+                towers.Add(MiniPekka.GetTower(__result));
+                towers.Add(Grim_Reaper.GetTower(__result));
+                towers.Add(Steve.GetTower(__result));
+
+                paragons.Add(Paragons.GetDartMonkey(__result));
+                paragons.Add(Paragons.GetBoomerangMonkey(__result));
+                paragons.Add(Paragons.GetNinjaMonkey(__result));
+                paragons.Add(Paragons.GetMonkeyBuccaneer(__result));
+
 
                 foreach (var paragon in paragons) {
                     __result.towers = __result.towers.Add(paragon.Item1);

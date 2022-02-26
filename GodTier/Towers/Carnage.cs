@@ -12,7 +12,7 @@
         public static (TowerModel, ShopTowerDetailsModel, TowerModel[], UpgradeModel[]) GetTower(GameModel gameModel) {
             var carnageDetails = gameModel.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             carnageDetails.towerId = name;
-            carnageDetails.towerIndex = 35;
+            carnageDetails.towerIndex = GlobalTowerIndex.Index;
 
             if (!LocalizationManager.Instance.textTable.ContainsKey("Carnage"))
                 LocalizationManager.Instance.textTable.Add("Carnage", "Carnage (Earth 616)");
@@ -446,7 +446,7 @@
 
         [HarmonyPatch(typeof(Weapon), nameof(Weapon.SpawnDart))]
         public static class WI {
-            private static Dictionary<int, float> remaining = new();
+            private static readonly Dictionary<int, float> remaining = new();
 
             [HarmonyPostfix]
             public static void Postfix(ref Weapon __instance) => RunAnimations(__instance);

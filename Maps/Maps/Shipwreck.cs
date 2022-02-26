@@ -68,7 +68,7 @@ namespace Maps.Maps {
                             new("Straight1", AreaStraight1, 0, AreaType.track)
                     }, new BlockerModel[0], new CoopAreaLayoutModel[]
                         {
-                            new(new CoopAreaModel[] {new(0, AreaWhole, new())}, AreaLayoutType.FREE_FOR_ALL, new CoopAreaWhiteLineModel[0])
+                            new(new CoopAreaModel[] {new(0, AreaWhole, new())}, AreaLayoutType.FREE_FOR_ALL)
                         },
                         new PathModel[] {
                             new("Path1", Path1, true, false, new(-1000, -1000, -1000), new(-1000, -1000, -1000), null, null),

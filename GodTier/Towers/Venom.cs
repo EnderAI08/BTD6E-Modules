@@ -16,7 +16,7 @@
         public static (TowerModel, ShopTowerDetailsModel, TowerModel[], UpgradeModel[]) GetTower(GameModel gameModel) {
             var VenomDetails = gameModel.towerSet[0].Clone().Cast<ShopTowerDetailsModel>();
             VenomDetails.towerId = name;
-            VenomDetails.towerIndex = 36;
+            VenomDetails.towerIndex = GlobalTowerIndex.Index;
 
             if (!LocalizationManager.Instance.textTable.ContainsKey("Venom"))
                 LocalizationManager.Instance.textTable.Add("Venom", "Venom (Earth 120703)");
