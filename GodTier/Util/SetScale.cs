@@ -129,7 +129,7 @@
     }
     [RegisterTypeInIl2Cpp]
     public class SetScale10 : MonoBehaviour {
-        private readonly static float scale = 3;
+        private readonly static float scale = 4;
 
         public SetScale10(IntPtr obj0) : base(obj0) { ClassInjector.DerivedConstructorBody(this); }
 

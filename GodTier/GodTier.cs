@@ -81,6 +81,9 @@ namespace GodTier {
                         case "Marvel":
                             __instance.bg.overrideSprite = LoadSprite(LoadTextureFromBytes(GodlyTowers.Properties.Resources.TowerContainerMarvel));
                             break;
+                        case "Game":
+                            __instance.bg.overrideSprite = LoadSprite(LoadTextureFromBytes(GodlyTowers.Properties.Resources.TowerContainerGame));
+                            break;
                         case "None":
                             __instance.bg.overrideSprite = LoadSprite(LoadTextureFromBytes(GodlyTowers.Properties.Resources.none));
                             break;
