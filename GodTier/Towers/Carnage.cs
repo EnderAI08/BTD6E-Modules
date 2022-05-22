@@ -41,7 +41,7 @@
             carnage.radius = 8;
             carnage.cost = 800;
             carnage.range = 35;
-            carnage.mods = new ApplyModModel[0];
+            carnage.mods = Array.Empty<ApplyModModel>();
             carnage.upgrades = new UpgradePathModel[] { new("Spike Shooter", name + "-100") };
 
             for (var i = 0; i < carnage.behaviors.Count; i++) {
@@ -99,7 +99,7 @@
             carnage.tier = 1;
             carnage.tiers = new[] { 1, 0, 0 };
             carnage.range = 50;
-            carnage.mods = new ApplyModModel[0];
+            carnage.mods = Array.Empty<ApplyModModel>();
             carnage.upgrades = new UpgradePathModel[] { new("Knulls Empowerment", name + "-200") };
 
             for (var i = 0; i < carnage.behaviors.Count; i++) {
@@ -225,7 +225,7 @@
             carnage.tier = 4;
             carnage.tiers = new[] { 4, 0, 0 };
             carnage.range = 66;
-            carnage.upgrades = new UpgradePathModel[0];
+            carnage.upgrades = Array.Empty<UpgradePathModel>();
 
             for (var i = 0; i < carnage.behaviors.Count; i++) {
                 var b = carnage.behaviors[i];

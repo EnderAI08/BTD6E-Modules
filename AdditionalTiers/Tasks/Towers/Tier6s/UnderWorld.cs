@@ -41,7 +41,7 @@ namespace AdditionalTiers.Tasks.Towers.Tier6s {
                 CreateEffectOnAbilityModel effectOnAbility = new("CreateEffectOnAbilityModel_Ability_", new("EffectModel_", "14b648f9ccb204d4eb8a79cc203c670f", 1.0f, 50.0f, false, false, true, false, false, false, false), false, false, true, false, false);
                 CreateEffectOnAbilityModel effectOnAbility2 = new("CreateEffectOnAbilityModel_Ability_", new("EffectModel_", "587c28ba86e6282419d8a89066ba4fd0", 1.0f, 15.0f, false, false, true, false, false, false, false), false, false, true, false, false);
                 CreateEffectOnAbilityModel effectOnAbility3 = new("CreateEffectOnAbilityModel_Ability_", new("EffectModel_", "617f1117bf0d35d4b9e59c80128982a6", 1.0f, 60.0f, false, false, true, false, false, false, false), false, false, true, false, false);
-                CreateSoundOnAbilityModel soundOnAbility = new("CreateSoundOnAbilityModel_Ability", new("SoundModel_ActivatedUnholyGatesSound", "c72781a0643d41c4b976110d1516fabc"), SoundModel.blank, SoundModel.blank);
+                CreateSoundOnAbilityModel soundOnAbility = new("CreateSoundOnAbilityModel_Ability", new("SoundModel_ActivatedUnholyGatesSound", "c72781a0643d41c4b976110d1516fabc"), new("",""), new("", ""));
                 EffectModel effectModel = new("EffectModel_", "617f1117bf0d35d4b9e59c80128982a6", 1.0f, 60.0f, false, false, true, false, false, false, false);
                 DamageUpModel damageUpModel = new("DamageUpModel_", 899, 5000, new("assetPathIG", "4fb0baaa656410f4ba1f2fd07b37eda4"));
                 SwitchDisplayModel switchDisplayModel = new("SwitchDisplayModel_", 14.7f, true, "UnderworldInverted", effectModel, false);

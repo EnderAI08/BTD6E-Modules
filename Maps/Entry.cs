@@ -26,16 +26,16 @@ using Image = UnityEngine.UI.Image;
 [assembly: MelonInfo(typeof(Maps.Entry), "Maps", "1.5", "1330 Studios LLC")]
 namespace Maps {
     class Entry : MelonMod {
-        public static AssetBundle SceneBundle = null;
+        public static AssetBundle SceneBundle;
         public override void OnApplicationStart() {
             SceneBundle = AssetBundle.LoadFromMemory(Properties.Resources.map);
             MelonLogger.Msg(ConsoleColor.Red, "Maps Loaded!");
         }
 
         [HarmonyPatch(typeof(InGame), "Update")]
-        public class Update_Patch {
-            private static float lastX = 0, lastY = 0;
-            private static bool run = false;
+        public sealed class Update_Patch {
+            private static float lastX, lastY;
+            private static bool run;
 
             [HarmonyPostfix]
             public static void Postfix() {
@@ -65,23 +65,23 @@ namespace Maps {
         }
 
         [HarmonyPatch(typeof(Game), nameof(Game.Awake))]
-        public class GameAwake {
+        public sealed class GameAwake {
             [HarmonyPostfix]
-            public static void Postfix(ref Game __instance) {
+            public static void Postfix() {
                 var ms = ScriptableObjectSingleton<GameData>._instance.mapSet.Maps.items;
 
                 for (var i = 0; i < ms.Length; i++) {
                     ms[i].isDebug = ms[i].isBrowserOnly = false;
                 }
 
-                var impls = new MapImpl[] { BigFoot.VALUE, Daffodils.VALUE, Shipwreck.VALUE };
+                var impls = new MapImpl[] { BigFoot.VALUE, Daffodils.VALUE, Shipwreck.VALUE, PVZGarden.VALUE, CursedMeadows.VALUE, EggHunt.VALUE };
 
                 ScriptableObjectSingleton<GameData>._instance.mapSet.Maps.items = ms.AddAll(impls.Select(impl => impl.GetCreated()).ToArray());
             }
         }
 
         [HarmonyPatch(typeof(ResourceLoader), "LoadSpriteFromSpriteReferenceAsync")]
-        public record ResourceLoader_Patch {
+        public sealed class ResourceLoader_Patch {
             [HarmonyPostfix]
             public static void Postfix(SpriteReference reference, Image image) {
                 if (reference != null) {

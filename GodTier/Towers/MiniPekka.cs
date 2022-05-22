@@ -46,7 +46,7 @@
             minipekka.radius = 8;
             minipekka.cost = 800;
             minipekka.range = 35;
-            minipekka.mods = new ApplyModModel[0];
+            minipekka.mods = Array.Empty<ApplyModModel>();
             minipekka.tier = 0;
             minipekka.tiers = new[] { 0, 0, 0 };
             minipekka.upgrades = new UpgradePathModel[] { new UpgradePathModel("Roman Specialty", $"{name}-100") };
@@ -57,7 +57,7 @@
                     var att = b.Cast<AttackModel>();
                     att.weapons[0].rate *= 2;
                     att.weapons[0].name = "swing";
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
                     att.weapons[0].projectile.pierce = 1;
 
                     for (var j = 0; j < att.weapons[0].projectile.behaviors.Length; j++) {
@@ -96,7 +96,7 @@
             minipekka.radius = 8;
             minipekka.cost = 800;
             minipekka.range = 35;
-            minipekka.mods = new ApplyModModel[0];
+            minipekka.mods = Array.Empty<ApplyModModel>();
             minipekka.tier = 1;
             minipekka.tiers = new[] { 1, 0, 0 };
             minipekka.upgrades = new UpgradePathModel[] { new UpgradePathModel("European Recipies", $"{name}-200") };
@@ -106,7 +106,7 @@
                 if (b.GetIl2CppType() == Il2CppType.Of<AttackModel>()) {
                     var att = b.Cast<AttackModel>();
                     att.weapons[0].name = "swing";
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
 
                     for (var j = 0; j < att.weapons[0].projectile.behaviors.Length; j++) {
                         var pb = att.weapons[0].projectile.behaviors[j];
@@ -144,7 +144,7 @@
             minipekka.radius = 8;
             minipekka.cost = 800;
             minipekka.range = 35;
-            minipekka.mods = new ApplyModModel[0];
+            minipekka.mods = Array.Empty<ApplyModModel>();
             minipekka.tier = 2;
             minipekka.tiers = new[] { 2, 0, 0 };
             minipekka.upgrades = new UpgradePathModel[] { new UpgradePathModel("Vogue's Flip Flop", $"{name}-300") };
@@ -154,7 +154,7 @@
                 if (b.GetIl2CppType() == Il2CppType.Of<AttackModel>()) {
                     var att = b.Cast<AttackModel>();
                     att.weapons[0].name = "swing";
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
 
                     for (var j = 0; j < att.weapons[0].projectile.behaviors.Length; j++) {
                         var pb = att.weapons[0].projectile.behaviors[j];
@@ -193,7 +193,7 @@
             minipekka.radius = 8;
             minipekka.cost = 800;
             minipekka.range = 35;
-            minipekka.mods = new ApplyModModel[0];
+            minipekka.mods = Array.Empty<ApplyModModel>();
             minipekka.tier = 3;
             minipekka.tiers = new[] { 3, 0, 0 };
             minipekka.upgrades = new UpgradePathModel[] { new UpgradePathModel("Premade Pancake Mix", $"{name}-400") };
@@ -203,8 +203,8 @@
                 if (b.GetIl2CppType() == Il2CppType.Of<AttackModel>()) {
                     var att = b.Cast<AttackModel>();
                     att.weapons[0].name = "swing";
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
-                    att.weapons[0].projectile.filters = new FilterModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
+                    att.weapons[0].projectile.filters = Array.Empty<FilterModel>();
                     att.weapons[0].projectile.pierce += 5;
 
                     for (var j = 0; j < att.weapons[0].projectile.behaviors.Length; j++) {
@@ -217,7 +217,7 @@
 
                         if (pb.GetIl2CppType() == Il2CppType.Of<ProjectileFilterModel>()) {
                             var pfm = pb.Cast<ProjectileFilterModel>();
-                            pfm.filters = new FilterModel[0];
+                            pfm.filters = Array.Empty<FilterModel>();
                             att.weapons[0].projectile.behaviors[j] = pfm;
                         }
                     }
@@ -249,7 +249,7 @@
             minipekka.radius = 8;
             minipekka.cost = 800;
             minipekka.range = 35;
-            minipekka.mods = new ApplyModModel[0];
+            minipekka.mods = Array.Empty<ApplyModModel>();
             minipekka.tier = 4;
             minipekka.tiers = new[] { 4, 0, 0 };
             minipekka.upgrades = new UpgradePathModel[] { new UpgradePathModel("Marathon Mike", $"{name}-500") };
@@ -260,7 +260,7 @@
                     var att = b.Cast<AttackModel>();
                     att.weapons[0].rate /= 1.5f;
                     att.weapons[0].name = "swing";
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
                     att.weapons[0].projectile.pierce += 5;
 
                     for (var j = 0; j < att.weapons[0].projectile.behaviors.Length; j++) {
@@ -300,10 +300,10 @@
             minipekka.radius = 8;
             minipekka.cost = 800;
             minipekka.range = 40;
-            minipekka.mods = new ApplyModModel[0];
+            minipekka.mods = Array.Empty<ApplyModModel>();
             minipekka.tier = 5;
             minipekka.tiers = new[] { 5, 0, 0 };
-            minipekka.upgrades = new UpgradePathModel[0];
+            minipekka.upgrades = Array.Empty<UpgradePathModel>();
 
             for (var i = 0; i < minipekka.behaviors.Count; i++) {
                 var b = minipekka.behaviors[i];
@@ -311,7 +311,7 @@
                     var att = b.Cast<AttackModel>();
                     att.weapons[0].rate /= 1.5f;
                     att.weapons[0].name = "swing";
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
                     att.weapons[0].projectile.pierce += 50;
                     att.weapons[0].projectile.radius = 30;
 

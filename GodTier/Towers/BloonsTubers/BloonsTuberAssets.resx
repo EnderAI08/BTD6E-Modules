@@ -122,6 +122,12 @@
   <data name="TewtiyT5Overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\Resources\BloonsTubers\Tewtiy\T5Overlay.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="TewtiyT6Overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\BloonsTubers\Tewtiy\T6Overlay.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TewtiyT6AOverlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\BloonsTubers\Tewtiy\T6AOverlay.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="TewtiyT1Upgrade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\Resources\BloonsTubers\Tewtiy\T1Upgrade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -137,6 +143,9 @@
   <data name="TewtiyT5Upgrade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\Resources\BloonsTubers\Tewtiy\T5Upgrade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="TewtiyT6Upgrade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\BloonsTubers\Tewtiy\T6Upgrade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="TewtiyBanana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\Resources\BloonsTubers\Tewtiy\Banana.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -145,6 +154,12 @@
   </data>
   <data name="TewtiySplosiveNanners" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\Resources\BloonsTubers\Tewtiy\SplosiveNanners.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TewtiyLBanana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\BloonsTubers\Tewtiy\LBanana.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TewtiyLAbility" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\BloonsTubers\Tewtiy\LAbility.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TewtiyAssetBundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\Resources\BloonsTubers\Tewtiy\tewtiy.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

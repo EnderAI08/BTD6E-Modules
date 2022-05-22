@@ -39,7 +39,7 @@
                     }
                 }
 
-                totemVitaminC.behaviors = totemBeh.Add(new TowerExpireModel("TEM_", 25, true, true));
+                totemVitaminC.behaviors = totemBeh.Add(new TowerExpireModel("TEM_", 25, 1, true, true));
 
                 var engi200spawner = gm.towers.First(a => a.name.Contains("EngineerMonkey-200")).CloneCast().behaviors.First(a => a.name.Contains("Spawner")).Cast<AttackModel>();
                 engi200spawner.range = 100;

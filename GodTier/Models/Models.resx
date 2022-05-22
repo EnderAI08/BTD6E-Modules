@@ -133,9 +133,6 @@
   <data name="minipekka" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minipekka.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="minipekka" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minipekka.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="tobeymaguirespiderman" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tobeymaguirespiderman.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -144,5 +141,11 @@
   </data>
   <data name="steve" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\steve.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="shrek" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shrek.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mechagodzilla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mechagodzilla.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

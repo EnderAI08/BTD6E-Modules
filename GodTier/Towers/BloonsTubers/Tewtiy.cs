@@ -1,7 +1,5 @@
 ﻿using Assets.Scripts.Simulation.Towers.Behaviors.Abilities;
 
-using System.Linq;
-
 namespace GodlyTowers.Towers.BloonsTubers;
 
 internal unsafe class Tewtiy : BloonsTuberBase {
@@ -25,7 +23,8 @@ internal unsafe class Tewtiy : BloonsTuberBase {
             GetT2(ref model),
             GetT3(ref model),
             GetT4(ref model),
-            GetT5(ref model)
+            GetT5(ref model),
+            GetT6(ref model)
         };
 
         UpgradeModels = new() {
@@ -33,7 +32,8 @@ internal unsafe class Tewtiy : BloonsTuberBase {
             new UpgradeModel("TewtiyLikeVid", 875, -1, new("TewtiyT2U"), 0, 1, 0, "", "Like The Video"),
             new UpgradeModel("TewtiyCommentVid", 2250, -1, new("TewtiyT3U"), 0, 2, 0, "", "Comment On The Video"),
             new UpgradeModel("TewtiySplosiveNanas", 7500, -1, new("TewtiyT4U"), 0, 3, 0, "", "\'Splosive Nanners"),
-            new UpgradeModel("TewtiySubChannel", 20000, -1, new("TewtiyT5U"), 0, 4, 0, "", "Subscribe To The Channel")
+            new UpgradeModel("TewtiySubChannel", 20000, -1, new("TewtiyT5U"), 0, 4, 0, "", "Subscribe To The Channel"),
+            new UpgradeModel("TewtiyLuminosity", 50000, -1, new("TewtiyT6U"), 1, 0, 0, "", "???")
         };
 
         model.towers = model.towers.Add(TowerModels);
@@ -49,7 +49,7 @@ internal unsafe class Tewtiy : BloonsTuberBase {
     }
 
     public new static ShopTowerDetailsModel GetShopDetailsModel() {
-        ShopTowerDetailsModel shop = new ShopTowerDetailsModel(Name, GlobalTowerIndex.Index, 5, 0, 0, -1, -1, null);
+        ShopTowerDetailsModel shop = new ShopTowerDetailsModel(Name, GlobalTowerIndex.Index, 5, 5, 5, -1, -1, null);
 
         if (!LocalizationManager.Instance.textTable.ContainsKey("Banana Ricochet Description"))
             LocalizationManager.Instance.textTable.Add("Banana Ricochet Description", "Banana go boioioioing");
@@ -61,6 +61,8 @@ internal unsafe class Tewtiy : BloonsTuberBase {
             LocalizationManager.Instance.textTable.Add("\'Splosive Nanners Description", "Them nanners explodin\' again. Gee wiz. Alrighty, I guess we gotta throw em faster!");
         if (!LocalizationManager.Instance.textTable.ContainsKey("Subscribe To The Channel Description"))
             LocalizationManager.Instance.textTable.Add("Subscribe To The Channel Description", "You came this far, might as well subscribe. Theres more content like this uploaded daily! If you like this video, theres no doubt you'll like the others.");
+        if (!LocalizationManager.Instance.textTable.ContainsKey("??? Description"))
+            LocalizationManager.Instance.textTable.Add("??? Description", "Something big is coming...");
 
         return shop;
     }
@@ -72,7 +74,7 @@ internal unsafe class Tewtiy : BloonsTuberBase {
         tower.display = "TewtiyT0";
         tower.portrait = new("TewtiyPortrait");
         tower.icon = new("TewtiyPortrait");
-        tower.upgrades = new UpgradePathModel[] { new("TewtiyBananaRicochet", "Tewtiy-100") };
+        tower.upgrades = new UpgradePathModel[] { new("TewtiyBananaRicochet", "Tewtiy-100"), new("TewtiyLuminosity", "Tewtiy-510") };
         Parallel.ForEach(tower.behaviors, behavior => {
             if (behavior.Is<DisplayModel>(out var display)) {
                 display.display = "TewtiyT0";
@@ -126,7 +128,7 @@ internal unsafe class Tewtiy : BloonsTuberBase {
         tower.display = "TewtiyT2";
         tower.tier = 2;
         tower.tiers = new[] { 2, 0, 0 };
-        tower.upgrades = new UpgradePathModel[] { new("TewtiyCommentVid", "Tewtiy-300") };
+        tower.upgrades = new UpgradePathModel[] { new("TewtiyCommentVid", "Tewtiy-300"), new("TewtiyLuminosity", "Tewtiy-510") };
         Parallel.ForEach(tower.behaviors, behavior => {
             if (behavior.Is<DisplayModel>(out var display)) {
                 display.display = "TewtiyT2";
@@ -176,7 +178,7 @@ internal unsafe class Tewtiy : BloonsTuberBase {
         tower.display = "TewtiyT3";
         tower.tier = 3;
         tower.tiers = new[] { 3, 0, 0 };
-        tower.upgrades = new UpgradePathModel[] { new("TewtiySplosiveNanas", "Tewtiy-400") };
+        tower.upgrades = new UpgradePathModel[] { new("TewtiySplosiveNanas", "Tewtiy-400"), new("TewtiyLuminosity", "Tewtiy-510") };
         Parallel.ForEach(tower.behaviors, behavior => {
             if (behavior.Is<DisplayModel>(out var display)) {
                 display.display = "TewtiyT3";
@@ -219,7 +221,7 @@ internal unsafe class Tewtiy : BloonsTuberBase {
         tower.display = "TewtiyT4";
         tower.tier = 4;
         tower.tiers = new[] { 4, 0, 0 };
-        tower.upgrades = new UpgradePathModel[] { new("TewtiySubChannel", "Tewtiy-500") };
+        tower.upgrades = new UpgradePathModel[] { new("TewtiySubChannel", "Tewtiy-500"), new("TewtiyLuminosity", "Tewtiy-510") };
 
         var bomb = model.towers.First(a => a.name.Contains("Bomb")).behaviors.First(a=>a.Is<AttackModel>(out _)).CloneCast<AttackModel>().weapons[0].projectile;
 
@@ -255,7 +257,7 @@ internal unsafe class Tewtiy : BloonsTuberBase {
         tower.display = "TewtiyT5";
         tower.tier = 5;
         tower.tiers = new[] { 5, 0, 0 };
-        tower.upgrades = new UpgradePathModel[0];
+        tower.upgrades = new UpgradePathModel[] { new("TewtiyLuminosity", "Tewtiy-510") };
         Parallel.ForEach(tower.behaviors, behavior => {
             if (behavior.Is<DisplayModel>(out var display)) {
                 display.display = "TewtiyT5";
@@ -295,6 +297,81 @@ internal unsafe class Tewtiy : BloonsTuberBase {
         tower.behaviors = tower.behaviors.Add(ability);
 
         return tower;
+    }
+
+
+
+    private static TowerModel GetT6(ref GameModel model) {
+        var tower = GetT5(ref model);
+        tower.name = Name + "-510";
+        tower.display = "TewtiyT6";
+        tower.tier = 5;
+        tower.tiers = new[] { 5, 1, 0 };
+        tower.upgrades = Array.Empty<UpgradePathModel>();
+        Parallel.ForEach(tower.behaviors, behavior => {
+            if (behavior.Is<DisplayModel>(out var display)) {
+                display.display = "TewtiyT6";
+            }
+
+            if (behavior.Is<AttackModel>(out var attack)) {
+                attack.range += 50;
+
+                foreach (var weapon in attack.weapons) {
+                    weapon.rate = 0.001f;
+                    weapon.projectile.pierce = 25;
+                    weapon.emission = new AdoraEmissionModel("AEM_", 5, 30, null);
+                    weapon.projectile.display = "TewtiyLBanana";
+                    weapon.projectile.radius *= 2;
+
+                    foreach (var pbeh in weapon.projectile.behaviors) {
+                        if (pbeh.Is<TravelStraitModel>(out var tsm)) {
+                            tsm.lifespan++;
+                            tsm.speed *= 2;
+                        }
+                        if (pbeh.Is<DamageModel>(out var damage)) {
+                            damage.immuneBloonProperties = BloonProperties.None;
+                            damage.damage = 250;
+                        }
+                    }
+                }
+            }
+        });
+
+        tower.range += 50;
+
+        var effect = new CreateEffectOnAbilityModel("CreateEffectOnAbilityModel_", new("EffectModel_", "7d20a90dc7159c2428d4c5a9ee4b7277", 1, 4, false, false, false, false, false, false, false), false, false, false, false, false);
+        var effectEnd = new CreateEffectOnAbilityEndModel("CreateEffectOnAbilityEndModel_", new("EffectModel_", "7d20a90dc7159c2428d4c5a9ee4b7277", 1, 4, false, false, false, false, false, false, false), 15);
+
+        var rangeUp = new IncreaseRangeModel("IncreaseRangeModel_", 899, 2, 50, true);
+        var livesUp = new BonusLivesOnAbilityModel("BonusLivesOnAbilityModel_", 500);
+        var switchDisp = new SwitchDisplayModel("SwitchDisplayModel_", 15, true, "TewtiyT6A", new("EffectModel_", "7d20a90dc7159c2428d4c5a9ee4b7277", 1, 4, false, false, false, false, false, false, false), true);
+        var increaseSpeed = new TurboModel("TurboModel_", 15, 0, new AssetPathModel("TewtiyLBanana", "TewtiyLBanana"), 5000, 2, false);
+
+        var ability = new AbilityModel("LuminosityMoment", "Luminosity Moment", "Lets   Get   This   BREAD", 0, 0, new("TewtiyLAbility"), 50,
+            new Model[] { effect, effectEnd, rangeUp, livesUp, switchDisp, increaseSpeed }, false, false, "TewtiyLuminosity", 0, 0, 99999, false, false);
+
+        tower.behaviors = tower.behaviors.Remove(a=>a.GetIl2CppType() == Il2CppType.Of<AbilityModel>()).Add(ability);
+
+        return tower;
+    }
+
+
+    [HarmonyPatch(typeof(UpgradeButton), nameof(UpgradeButton.UpdateVisuals))]
+    internal sealed class UpgradeButton_Update {
+        [HarmonyPostfix]
+        internal static void Fix(ref UpgradeButton __instance) {
+            if (__instance == null) return;
+            if (__instance.upgrade == null) return;
+            if (__instance.upgrade.name == null) return;
+
+            if (__instance?.tts.tower.towerModel.baseId.Equals("Tewtiy") == true && __instance.upgrade.name == "TewtiyLuminosity") {
+                __instance.enabled = __instance.tts.tower.towerModel.tier == 5;
+                __instance.transform.localScale = __instance.tts.tower.towerModel.tier == 5 ? new Vector3(1, 1, 1) : new Vector3(0, 0, 0);
+            } else {
+                __instance.enabled = true;
+                __instance.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
     }
 
     [HarmonyPatch(typeof(Tower), nameof(Tower.OnPlace))]
@@ -385,6 +462,8 @@ internal unsafe class Tewtiy : BloonsTuberBase {
             Textures.Add("TewtiyT3", CombineTextures(LoadTextureFromBytes(BloonsTuberAssets.Tewtiy), LoadTextureFromBytes(BloonsTuberAssets.TewtiyT3Overlay)));
             Textures.Add("TewtiyT4", CombineTextures(LoadTextureFromBytes(BloonsTuberAssets.Tewtiy), LoadTextureFromBytes(BloonsTuberAssets.TewtiyT4Overlay)));
             Textures.Add("TewtiyT5", CombineTextures(LoadTextureFromBytes(BloonsTuberAssets.Tewtiy), LoadTextureFromBytes(BloonsTuberAssets.TewtiyT5Overlay)));
+            Textures.Add("TewtiyT6", CombineTextures(LoadTextureFromBytes(BloonsTuberAssets.Tewtiy), LoadTextureFromBytes(BloonsTuberAssets.TewtiyT6Overlay)));
+            Textures.Add("TewtiyT6A", CombineTextures(LoadTextureFromBytes(BloonsTuberAssets.Tewtiy), LoadTextureFromBytes(BloonsTuberAssets.TewtiyT6AOverlay)));
 
             do {
                 hadError = false;
@@ -392,8 +471,9 @@ internal unsafe class Tewtiy : BloonsTuberBase {
                 foreach (var name in Textures.Keys)
                     GetTexture(name);
 
-            } while (!Textures.ContainsKey("TewtiyT5") || Textures["TewtiyT1"] == null || Textures["TewtiyT2"] == null
-            || Textures["TewtiyT3"] == null || Textures["TewtiyT4"] == null || Textures["TewtiyT5"] == null || hadError);
+            } while (Textures["TewtiyT1"] == null || Textures["TewtiyT2"] == null || Textures["TewtiyT3"] == null
+            || Textures["TewtiyT4"] == null || Textures["TewtiyT5"] == null || Textures["TewtiyT6"] == null ||
+            Textures["TewtiyT6A"] == null || hadError);
 
             Logger13.Log("Generated all textures for \"Tewtiy\" tower.");
         }
@@ -403,6 +483,8 @@ internal unsafe class Tewtiy : BloonsTuberBase {
 
             if (ret == null || ret.GetPixel(1, 1) == Color.white) {
                 hadError = true;
+
+                Logger13.Warn($"{name} had to be regenerated!");
 
                 switch (name) {
                     case "TewtiyBase":
@@ -422,6 +504,12 @@ internal unsafe class Tewtiy : BloonsTuberBase {
                         break;
                     case "TewtiyT5":
                         Textures["TewtiyT5"] = CombineTextures(LoadTextureFromBytes(BloonsTuberAssets.Tewtiy), LoadTextureFromBytes(BloonsTuberAssets.TewtiyT5Overlay));
+                        break;
+                    case "TewtiyT6":
+                        Textures["TewtiyT6"] = CombineTextures(LoadTextureFromBytes(BloonsTuberAssets.Tewtiy), LoadTextureFromBytes(BloonsTuberAssets.TewtiyT6Overlay));
+                        break;
+                    case "TewtiyT6A":
+                        Textures["TewtiyT6A"] = CombineTextures(LoadTextureFromBytes(BloonsTuberAssets.Tewtiy), LoadTextureFromBytes(BloonsTuberAssets.TewtiyT6AOverlay));
                         break;
                 }
 
@@ -536,6 +624,48 @@ internal unsafe class Tewtiy : BloonsTuberBase {
                 return false;
             }
 
+            if (objectId.Equals("TewtiyT6") || objectId.Equals("TewtiyT6A")) {
+                UnityDisplayNode udn = null;
+                __instance.FindAndSetupPrototypeAsync("c73f298fe9c1187449a45ef0a7ae5fc2", new Action<UnityDisplayNode>(btdUdn => {
+                    var instance = Object.Instantiate(btdUdn, __instance.PrototypeRoot);
+                    instance.name = objectId + "(Clone)";
+                    instance.RecalculateGenericRenderers();
+                    foreach (var r in instance.genericRenderers.Where(r => r.Is<SkinnedMeshRenderer>(out var smr))) {
+                        r.material.mainTexture = GetTexture(objectId);
+                    }
+
+                    if (objectId.Equals("TewtiyT6A")) {
+                        {
+                            instance.transform.gameObject.AddComponent<SetScaleT>();
+                            var _obj = TewtiyAssets.LoadAsset("LAPartSys").Cast<GameObject>();
+                            var obj = Object.Instantiate(_obj, instance.transform);
+                            obj.SetActive(true);
+                            var ps = obj.transform.GetComponentInChildren<ParticleSystem>();
+                            ps.transform.localScale = new(10, 10, 10);
+                        }
+                        {
+                            var _obj = TewtiyAssets.LoadAsset("LAPartSysL").Cast<GameObject>();
+                            var obj = Object.Instantiate(_obj, instance.transform);
+                            obj.SetActive(true);
+                            var ps = obj.transform.GetComponentInChildren<ParticleSystem>();
+                            ps.transform.localScale = new(10, 10, 10);
+                        }
+                    } else {
+                        {
+                            var _obj = TewtiyAssets.LoadAsset("LPartSys").Cast<GameObject>();
+                            var obj = Object.Instantiate(_obj, instance.transform);
+                            obj.SetActive(true);
+                            var ps = obj.transform.GetComponentInChildren<ParticleSystem>();
+                            ps.transform.localScale = new(10, 10, 10);
+                        }
+                    }
+
+                    udn = instance;
+                    onComplete.Invoke(udn);
+                }));
+                return false;
+            }
+
             if (objectId.Equals("TewtiyBanana")) {
                 UnityDisplayNode udn = null;
                 __instance.FindAndSetupPrototypeAsync("842be402795e7334cbc77d33b6746bff",
@@ -548,7 +678,7 @@ internal unsafe class Tewtiy : BloonsTuberBase {
                             if (nudn.genericRenderers[i].GetIl2CppType() == Il2CppType.Of<SpriteRenderer>()) {
                                 var smr = nudn.genericRenderers[i].Cast<SpriteRenderer>();
                                 var text = LoadTextureFromBytes(BloonsTuberAssets.TewtiyBanana);
-                                smr.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new(0.5f, 0.5f), 5.4f * 2);
+                                smr.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new(0.5f, 0.5f), 5.4f);
                             }
                         }
                         nudn.gameObject.AddComponent<Rotate>();
@@ -571,7 +701,7 @@ internal unsafe class Tewtiy : BloonsTuberBase {
                             if (nudn.genericRenderers[i].GetIl2CppType() == Il2CppType.Of<SpriteRenderer>()) {
                                 var smr = nudn.genericRenderers[i].Cast<SpriteRenderer>();
                                 var text = LoadTextureFromBytes(BloonsTuberAssets.TewtiySplosiveNanners);
-                                smr.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new(0.5f, 0.5f), 5.4f * 2);
+                                smr.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new(0.5f, 0.5f), 5.4f);
                             }
                         }
                         nudn.gameObject.AddComponent<Rotate>();
@@ -594,10 +724,39 @@ internal unsafe class Tewtiy : BloonsTuberBase {
                             if (nudn.genericRenderers[i].GetIl2CppType() == Il2CppType.Of<SpriteRenderer>()) {
                                 var smr = nudn.genericRenderers[i].Cast<SpriteRenderer>();
                                 var text = LoadTextureFromBytes(BloonsTuberAssets.TewtiyTurboBanana);
-                                smr.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new(0.5f, 0.5f), 5.4f * 2);
+                                smr.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new(0.5f, 0.5f), 5.4f);
                             }
                         }
                         nudn.gameObject.AddComponent<Rotate>();
+
+                        udn = nudn;
+                        onComplete.Invoke(udn);
+                    }));
+                return false;
+            }
+
+            if (objectId.Equals("TewtiyLBanana")) {
+                UnityDisplayNode udn = null;
+                __instance.FindAndSetupPrototypeAsync("842be402795e7334cbc77d33b6746bff",
+                    new Action<UnityDisplayNode>(oudn => {
+                        var nudn = Object.Instantiate(oudn, __instance.PrototypeRoot);
+                        nudn.name = objectId + "(Clone)";
+                        nudn.isSprite = true;
+                        nudn.RecalculateGenericRenderers();
+                        for (var i = 0; i < nudn.genericRenderers.Length; i++) {
+                            if (nudn.genericRenderers[i].GetIl2CppType() == Il2CppType.Of<SpriteRenderer>()) {
+                                var smr = nudn.genericRenderers[i].Cast<SpriteRenderer>();
+                                var text = LoadTextureFromBytes(BloonsTuberAssets.TewtiyLBanana);
+                                smr.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new(0.5f, 0.5f), 5.4f);
+                            }
+                        }
+                        nudn.gameObject.AddComponent<Rotate>();
+
+                        var _obj = TewtiyAssets.LoadAsset("LPBanana").Cast<GameObject>();
+                        var obj = Object.Instantiate(_obj, nudn.transform);
+                        obj.SetActive(true);
+                        var ps = obj.transform.GetComponentInChildren<ParticleSystem>();
+                        ps.transform.localScale = new(10, 10, 10);
 
                         udn = nudn;
                         onComplete.Invoke(udn);
@@ -661,6 +820,24 @@ internal unsafe class Tewtiy : BloonsTuberBase {
             if (reference != null && reference.guidRef.Equals("TewtiyT5U"))
                 try {
                     var b = LoadTextureFromBytes(BloonsTuberAssets.TewtiyT5Upgrade);
+                    if (b != null) {
+                        var text = b.Cast<Texture2D>();
+                        image.canvasRenderer.SetTexture(text);
+                        image.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new());
+                    }
+                } catch { }
+            if (reference != null && reference.guidRef.Equals("TewtiyT6U"))
+                try {
+                    var b = LoadTextureFromBytes(BloonsTuberAssets.TewtiyT6Upgrade);
+                    if (b != null) {
+                        var text = b.Cast<Texture2D>();
+                        image.canvasRenderer.SetTexture(text);
+                        image.sprite = Sprite.Create(text, new(0, 0, text.width, text.height), new());
+                    }
+                } catch { }
+            if (reference != null && reference.guidRef.Equals("TewtiyLAbility"))
+                try {
+                    var b = LoadTextureFromBytes(BloonsTuberAssets.TewtiyLAbility);
                     if (b != null) {
                         var text = b.Cast<Texture2D>();
                         image.canvasRenderer.SetTexture(text);

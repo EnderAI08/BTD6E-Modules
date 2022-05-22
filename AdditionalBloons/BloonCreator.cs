@@ -1,23 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
+﻿
 using AdditionalBloons.Tasks;
 using AdditionalBloons.Utils;
 
-using Assets.Scripts.Models;
 using Assets.Scripts.Models.Bloons;
-using Assets.Scripts.Models.Bloons.Behaviors;
 using Assets.Scripts.Unity.UI_New.InGame.BloonMenu;
 
-using UnhollowerBaseLib;
-
-using UnhollowerRuntimeLib;
-
 namespace AdditionalBloons {
-    public class BloonCreator {
+    public static class BloonCreator {
         public static List<BloonModel> bloons = new();
         public static List<AssetInfo> assets = new();
-        internal static BloonModel bloonBase;
+        internal static BloonModel bloonBase = null!;
 
         internal static void GameLoad(ref GameModel __result) {
             bloonBase = __result.bloons[0].Clone().Cast<BloonModel>();
@@ -32,35 +24,49 @@ namespace AdditionalBloons {
 
             #region Golden
 
-            bloons.Add(__result.bloons.First(a => a.baseId.ToLower().Equals("golden")));
+            bloons.Add(__result.bloons.First(a => a.baseId.Equals("golden", StringComparison.OrdinalIgnoreCase)));
 
             #endregion
 
             #region Bloonarius
 
-            bloons.Add(__result.bloons.First(a => a.id.ToLower().Equals("bloonarius1")));
-            bloons.Add(__result.bloons.First(a => a.id.ToLower().Equals("bloonarius5")));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("bloonarius1", StringComparison.OrdinalIgnoreCase)));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("bloonarius5", StringComparison.OrdinalIgnoreCase)));
 
             #endregion
 
             #region Bloonarius Elite
 
-            bloons.Add(__result.bloons.First(a => a.id.ToLower().Equals("bloonariuselite1")));
-            bloons.Add(__result.bloons.First(a => a.id.ToLower().Equals("bloonariuselite5")));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("bloonariuselite1", StringComparison.OrdinalIgnoreCase)));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("bloonariuselite5", StringComparison.OrdinalIgnoreCase)));
 
             #endregion
 
             #region Lych
 
-            bloons.Add(__result.bloons.First(a => a.id.ToLower().Equals("lych1")));
-            bloons.Add(__result.bloons.First(a => a.id.ToLower().Equals("lych5")));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("lych1", StringComparison.OrdinalIgnoreCase)));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("lych5", StringComparison.OrdinalIgnoreCase)));
 
             #endregion
 
             #region Lych Elite
 
-            bloons.Add(__result.bloons.First(a => a.id.ToLower().Equals("lychelite1")));
-            bloons.Add(__result.bloons.First(a => a.id.ToLower().Equals("lychelite5")));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("lychelite1", StringComparison.OrdinalIgnoreCase)));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("lychelite5", StringComparison.OrdinalIgnoreCase)));
+
+            #endregion
+
+            #region Vortex
+
+            bloons.Add(__result.bloons.First(a => a.id.Equals("vortex1", StringComparison.OrdinalIgnoreCase)));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("vortex5", StringComparison.OrdinalIgnoreCase)));
+
+            #endregion
+
+            #region Vortex Elite
+
+            bloons.Add(__result.bloons.First(a => a.id.Equals("vortexelite1", StringComparison.OrdinalIgnoreCase)));
+            bloons.Add(__result.bloons.First(a => a.id.Equals("vortexelite5", StringComparison.OrdinalIgnoreCase)));
 
             #endregion
 
@@ -115,6 +121,168 @@ namespace AdditionalBloons {
             }
 
             bloons.Add(coconutBloon);
+
+            #endregion
+
+            #region Flame BAD
+
+            assets.Add(new AssetInfo("FireBAD0", "8fd8a703a31154a49b25ba34235ab76c", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("FireBAD1", "e0db2c0609eefee4eb357037ff9bb4c8", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("FireBAD2", "4f156a75b1c709840b131495c537fec0", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("FireBAD3", "8f6b8e2c3be74c347a6825672589e463", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("FireBAD4", "5b2554745311aab4c8fe7d71708353ad", RendererType.SKINNEDMESHRENDERER));
+
+            var flameBAD = __result.bloons.First(a => a.baseId.Equals("Bad")).CloneCast();
+            flameBAD.display = "FireBAD0";
+            flameBAD.icon = new("FireBADIcon");
+            flameBAD.radius *= 1.5f;
+            flameBAD.maxHealth = 1000000f;
+            flameBAD.tags = new Il2CppStringArray(new string[] { "FireBAD", "NA" });
+            flameBAD.damageDisplayStates = new(new DamageStateModel[] {
+                new DamageStateModel("DamageStateModel_4", "FireBAD4", 0.2f),
+                new DamageStateModel("DamageStateModel_3", "FireBAD3", 0.4f),
+                new DamageStateModel("DamageStateModel_2", "FireBAD2", 0.6f),
+                new DamageStateModel("DamageStateModel_1", "FireBAD1", 0.8f)
+            });
+            for (int i = 0; i < flameBAD.behaviors.Length; i++) {
+                var behavior = flameBAD.behaviors[i];
+
+                if (behavior.GetIl2CppType() == Il2CppType.Of<DamageStateModel>()) {
+                    switch (behavior.Cast<DamageStateModel>().healthPercent) {
+                        case 0.2f:
+                            behavior.Cast<DamageStateModel>().displayPath = "FireBAD4";
+                            break;
+                        case 0.4f:
+                            behavior.Cast<DamageStateModel>().displayPath = "FireBAD3";
+                            break;
+                        case 0.6f:
+                            behavior.Cast<DamageStateModel>().displayPath = "FireBAD2";
+                            break;
+                        case 0.8f:
+                            behavior.Cast<DamageStateModel>().displayPath = "FireBAD1";
+                            break;
+                    }
+                }
+
+                flameBAD.behaviors[i] = behavior;
+            }
+
+            const int radius = 16;
+            const float scale = 2;
+            List<(float x, float y)> list = new List<(float x, float y)>();
+
+            for (int x = -radius; x <= radius; x++) {
+                for (int y = -radius; y <= radius; y++) {
+                    if (x * x + y * y <= radius * radius) {
+                        list.Add((x * scale, y * scale));
+                    }
+                }
+            }
+
+            int iteration = 0;
+            foreach (var (x, y) in list) {
+                iteration++;
+                flameBAD.behaviors = flameBAD.behaviors.Add(new DisplayModel($"FlameBAD_AuraRingX{iteration}", "Assets/Monkeys/TackShooter/Graphics/Effects/RingOfFireBurst.prefab", 1, new(x, y, 0), 1, false, iteration % 10 * 10f / 60f));
+            }
+
+            bloons.Add(flameBAD);
+
+            #endregion
+
+            #region Dontavious Farcleton
+
+            assets.Add(new AssetInfo("Dontavious0", "eff76d2b677b4b6499ee03b459d9b3fa", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("Dontavious1", "9781c9445be958d46a9b01d2e9e4a9d6", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("Dontavious2", "2bcc48db04077b444a092e8d64329e17", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("Dontavious3", "f0d9394b902facf4eae171d04c0eff90", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("Dontavious4", "811130f80d158d441809221a89c88b51", RendererType.SKINNEDMESHRENDERER));
+
+            var dontavious = __result.bloons.First(a => a.baseId.Equals("Moab")).CloneCast();
+            dontavious.display = "Dontavious0";
+            dontavious.icon = new("DontaviousIcon");
+            dontavious.radius *= 1.5f;
+            dontavious.maxHealth = 200000000;
+            dontavious.tags = new Il2CppStringArray(new string[] { "Dontavious", "Farcleton", "NA" });
+            dontavious.damageDisplayStates = new(new DamageStateModel[] {
+                new DamageStateModel("DamageStateModel_4", "Dontavious4", 0.2f),
+                new DamageStateModel("DamageStateModel_3", "Dontavious3", 0.4f),
+                new DamageStateModel("DamageStateModel_2", "Dontavious2", 0.6f),
+                new DamageStateModel("DamageStateModel_1", "Dontavious1", 0.8f)
+            });
+            for (int i = 0; i < dontavious.behaviors.Length; i++) {
+                var behavior = dontavious.behaviors[i];
+
+                if (behavior.GetIl2CppType() == Il2CppType.Of<DamageStateModel>()) {
+                    switch (behavior.Cast<DamageStateModel>().healthPercent) {
+                        case 0.2f:
+                            behavior.Cast<DamageStateModel>().displayPath = "Dontavious4";
+                            break;
+                        case 0.4f:
+                            behavior.Cast<DamageStateModel>().displayPath = "Dontavious3";
+                            break;
+                        case 0.6f:
+                            behavior.Cast<DamageStateModel>().displayPath = "Dontavious2";
+                            break;
+                        case 0.8f:
+                            behavior.Cast<DamageStateModel>().displayPath = "Dontavious1";
+                            break;
+                    }
+                }
+
+                dontavious.behaviors[i] = behavior;
+            }
+
+            bloons.Add(dontavious);
+
+            #endregion
+
+            #region Cop BAD
+
+
+            assets.Add(new AssetInfo("CopBAD0", "8fd8a703a31154a49b25ba34235ab76c", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("CopBAD1", "e0db2c0609eefee4eb357037ff9bb4c8", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("CopBAD2", "4f156a75b1c709840b131495c537fec0", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("CopBAD3", "8f6b8e2c3be74c347a6825672589e463", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("CopBAD4", "5b2554745311aab4c8fe7d71708353ad", RendererType.SKINNEDMESHRENDERER));
+            assets.Add(new AssetInfo("JailBars", bloonBase.display, RendererType.SPRITERENDERER));
+
+            var copBAD = __result.bloons.First(a => a.baseId.Equals("Bad")).CloneCast();
+            copBAD.display = "CopBAD0";
+            copBAD.icon = new("CopBADIcon");
+            copBAD.Speed = 3.0f;
+            copBAD.maxHealth = copBAD.leakDamage = 33500000;
+            copBAD.tags = new Il2CppStringArray(new string[] { "CopBAD", "NA" });
+            copBAD.damageDisplayStates = new(new DamageStateModel[] {
+                new DamageStateModel("DamageStateModel_4", "CopBAD4", 0.2f),
+                new DamageStateModel("DamageStateModel_3", "CopBAD3", 0.4f),
+                new DamageStateModel("DamageStateModel_2", "CopBAD2", 0.6f),
+                new DamageStateModel("DamageStateModel_1", "CopBAD1", 0.8f)
+            });
+            for (int i = 0; i < copBAD.behaviors.Length; i++) {
+                var behavior = copBAD.behaviors[i];
+
+                if (behavior.GetIl2CppType() == Il2CppType.Of<DamageStateModel>()) {
+                    switch (behavior.Cast<DamageStateModel>().healthPercent) {
+                        case 0.2f:
+                            behavior.Cast<DamageStateModel>().displayPath = "CopBAD4";
+                            break;
+                        case 0.4f:
+                            behavior.Cast<DamageStateModel>().displayPath = "CopBAD3";
+                            break;
+                        case 0.6f:
+                            behavior.Cast<DamageStateModel>().displayPath = "CopBAD2";
+                            break;
+                        case 0.8f:
+                            behavior.Cast<DamageStateModel>().displayPath = "CopBAD1";
+                            break;
+                    }
+                }
+
+                copBAD.behaviors[i] = behavior;
+            }
+
+            bloons.Add(copBAD);
+            
 
             #endregion
 

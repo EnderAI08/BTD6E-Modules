@@ -8,9 +8,9 @@
 
         public static void AddDamageModel(this ProjectileModel projectile, DamageModelCreation dmc, params object[] args) {
             DamageModel dm = dmc switch {
-                DamageModelCreation.Standard => new("DamageModel_Gen_Standard", (int)args[0] * DamageMultiplier, (int)args[0] * DamageMultiplier, true, (bool)args[1], true, (BloonProperties)(int)args[2]),
-                DamageModelCreation.None => new("DamageModel_Gen_None", (int)args[0] * DamageMultiplier, (int)args[0] * DamageMultiplier, (bool)args[1], (bool)args[2], (bool)args[3], (BloonProperties)(int)args[4]),
-                DamageModelCreation.Full => new("DamageModel_Gen_Full", (int)args[0] * DamageMultiplier, (int)args[0] * DamageMultiplier, true, true, true, BloonProperties.None),
+                DamageModelCreation.Standard => new("DamageModel_Gen_Standard", (int)args[0] * DamageMultiplier, (int)args[0] * DamageMultiplier, true, (bool)args[1], true, (BloonProperties)(int)args[2], BloonProperties.None),
+                DamageModelCreation.None => new("DamageModel_Gen_None", (int)args[0] * DamageMultiplier, (int)args[0] * DamageMultiplier, (bool)args[1], (bool)args[2], (bool)args[3], (BloonProperties)(int)args[4], BloonProperties.None),
+                DamageModelCreation.Full => new("DamageModel_Gen_Full", (int)args[0] * DamageMultiplier, (int)args[0] * DamageMultiplier, true, true, true, BloonProperties.None, BloonProperties.None),
                 _ => throw new Exception("How did we get here?")
             };
 

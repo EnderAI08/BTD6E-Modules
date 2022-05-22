@@ -42,25 +42,25 @@ namespace GodlyTowers.Towers {
             spiderman.radius = 8;
             spiderman.cost = 1250;
             spiderman.range = 75;
-            spiderman.mods = new ApplyModModel[0];
+            spiderman.mods = Array.Empty<ApplyModModel>();
             spiderman.upgrades = new UpgradePathModel[] { new("Iron Spider", name + "-100") };
 
             var gluegunner = gameModel.towers.First(a => a.name.Equals("GlueGunner-203")).Clone().Cast<TowerModel>();
             var glueproj = gluegunner.behaviors.First(a => a.GetIl2CppType() == Il2CppType.Of<AttackModel>()).Cast<AttackModel>().weapons[0].projectile;
 
-            glueproj.filters = new FilterModel[0];
+            glueproj.filters = Array.Empty<FilterModel>();
 
             for (var i = 0; i < spiderman.behaviors.Count; i++) {
                 var b = spiderman.behaviors[i];
                 if (b.GetIl2CppType() == Il2CppType.Of<AttackModel>()) {
                     var att = b.Cast<AttackModel>();
-                    att.behaviors.First(a => a.GetIl2CppType() == Il2CppType.Of<AttackFilterModel>()).Cast<AttackFilterModel>().filters = new FilterModel[0];
+                    att.behaviors.First(a => a.GetIl2CppType() == Il2CppType.Of<AttackFilterModel>()).Cast<AttackFilterModel>().filters = Array.Empty<FilterModel>();
                     att.weapons[0].name = "web";
                     att.weapons[0].animationOffset = 0.3f;
                     att.weapons[0].rate *= 2;
                     att.weapons[0].rateFrames *= 2;
                     att.weapons[0].projectile = glueproj;
-                    att.weapons[0].projectile.behaviors = att.weapons[0].projectile.behaviors.Add(new DamageModel("DM_", 2, 2, true, false, true, BloonProperties.None));
+                    att.weapons[0].projectile.behaviors = att.weapons[0].projectile.behaviors.Add(new DamageModel("DM_", 2, 2, true, false, true, BloonProperties.None, BloonProperties.None));
                     att.range = 75;
 
 
@@ -102,7 +102,7 @@ namespace GodlyTowers.Towers {
             spiderman.tier = 1;
             spiderman.tiers = new[] { 1, 0, 0 };
             spiderman.range = 100;
-            spiderman.mods = new ApplyModModel[0];
+            spiderman.mods = Array.Empty<ApplyModModel>();
             spiderman.upgrades = new UpgradePathModel[] { new("Upgraded Stark Suit", name + "-200") };
 
             for (var i = 0; i < spiderman.behaviors.Count; i++) {
@@ -154,7 +154,7 @@ namespace GodlyTowers.Towers {
             spiderman.tier = 2;
             spiderman.tiers = new[] { 2, 0, 0 };
             spiderman.range = 100;
-            spiderman.mods = new ApplyModModel[0];
+            spiderman.mods = Array.Empty<ApplyModModel>();
             spiderman.upgrades = new UpgradePathModel[] { new("Black and Gold Suit", name + "-300") };
 
             for (var i = 0; i < spiderman.behaviors.Count; i++) {
@@ -210,7 +210,7 @@ namespace GodlyTowers.Towers {
             spiderman.tier = 3;
             spiderman.tiers = new[] { 3, 0, 0 };
             spiderman.range = 150;
-            spiderman.upgrades = new UpgradePathModel[0];
+            spiderman.upgrades = Array.Empty<UpgradePathModel>();
 
             for (var i = 0; i < spiderman.behaviors.Count; i++) {
                 var b = spiderman.behaviors[i];

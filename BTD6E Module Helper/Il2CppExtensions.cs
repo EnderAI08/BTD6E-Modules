@@ -20,12 +20,12 @@ public static class Il2CppExtensions {
         return bases.Cast<Il2CppSystem.Collections.Generic.IEnumerable<TC>>();
     }
 
-    //https://stackoverflow.com/a/33803440
-    public static IntPtr GetPtr(this object o) {
+    public static unsafe IntPtr GetPtr(this object o) {
         var d = new DynamicMethod("GetPtr", typeof(IntPtr), new System.Type[] { typeof(object) }, Assembly.GetExecutingAssembly().ManifestModule);
         var il = d.GetILGenerator();
-        il.Emit(OpCodes.Ldarg_0);
+        il.Emit(OpCodes.Ldarga, 0);
         il.Emit(OpCodes.Ret);
+
         return (IntPtr)d.Invoke(null, new object[] { o });
     }
 
@@ -38,6 +38,8 @@ public static class Il2CppExtensions {
         ex = default;
         return false;
     }
+
+    public static bool Is<T>(this Il2CppSystem.Object obj) where T : Il2CppObjectBase => obj.GetIl2CppType() == Il2CppType.Of<T>();
 
     public static Il2CppReferenceArray<T> ToIl2CppArray<T>(this T[] array) where T : Il2CppObjectBase => new(array);
     public static Il2CppSystem.Collections.Generic.List<T> ToIl2CppList<T>(this T[] array) where T : Il2CppObjectBase {
@@ -88,4 +90,6 @@ public static class Il2CppExtensions {
     private static T[] ConcatArrayParams<T>(T[] a, params T[] b) => ConcatArray(a, b);
 
     private static T[] ConcatArrayEnumerable<T>(T[] a, IEnumerable<T> e) => ConcatArray(a, e.ToArray());
+
+
 }

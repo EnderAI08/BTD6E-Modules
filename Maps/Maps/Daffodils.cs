@@ -42,19 +42,18 @@ namespace Maps.Maps {
         [HarmonyPatch(typeof(MapLoader), nameof(MapLoader.Load))]
         public class MapLoad_Patch {
             [HarmonyPrefix]
-            public static bool Prefix(MapLoader __instance, string map, Il2CppSystem.Action<MapModel> loadedCallback) {
-                if (map.Equals(Name)) {
-                    __instance.currentMapName = map;
-                    var mapModel = new MapModel(map, new AreaModel[] {
-                            new("Whole", AreaWhole, 0, AreaType.land),
-                            new("Track", AreaTrack, 0, AreaType.track),
-                            new("Water", AreaWellWater, 0, AreaType.water),
-                            new("Land1", AreaLand1, 0, AreaType.land),
-                            new("Land2", AreaLand2, 0, AreaType.land),
-                            new("Tree1", AreaTree1, 15, AreaType.unplaceable, isBlocker: true),
-                            new("Tree2", AreaTree2, 15, AreaType.unplaceable, isBlocker: true),
-                            new("Tree3", AreaTree3, 15, AreaType.unplaceable, isBlocker: true),
-                            new("Tree4", AreaTree4, 15, AreaType.unplaceable, isBlocker: true)
+            public static bool Prefix(MapLoader __instance) {
+                if (__instance.currentMapName.Equals(Name)) {
+                    var mapModel = new MapModel(__instance.currentMapName, new AreaModel[] {
+                            new("Whole", AreaWhole, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Track", AreaTrack, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.track),
+                            new("Water", AreaWellWater, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.water),
+                            new("Land1", AreaLand1, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Land2", AreaLand2, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Tree1", AreaTree1, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 15, AreaType.unplaceable, isBlocker: true),
+                            new("Tree2", AreaTree2, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 15, AreaType.unplaceable, isBlocker: true),
+                            new("Tree3", AreaTree3, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 15, AreaType.unplaceable, isBlocker: true),
+                            new("Tree4", AreaTree4, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 15, AreaType.unplaceable, isBlocker: true)
                         }, new BlockerModel[0], new CoopAreaLayoutModel[] {
                             new(new CoopAreaModel[] {new(0, AreaWhole, new())}, AreaLayoutType.FREE_FOR_ALL)
                         },
@@ -63,9 +62,8 @@ namespace Maps.Maps {
                         }, new RemoveableModel[0], new MapGizmoModel[0], 0
                         , new("", new("", new string[] { "Path1" }), new("", new string[] { "Path1" }))
                         , new MapEventModel[0], 1);
-                    loadedCallback.Invoke(mapModel);
 
-                    SceneManager.LoadScene(map, new LoadSceneParameters {
+                    SceneManager.LoadScene(__instance.currentMapName, new LoadSceneParameters {
                         loadSceneMode = LoadSceneMode.Additive,
                         localPhysicsMode = LocalPhysicsMode.None
                     });

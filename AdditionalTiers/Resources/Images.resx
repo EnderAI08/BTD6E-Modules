@@ -358,6 +358,12 @@
   <data name="BlackYellowPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>BlackYellowPortrait.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="PlanetWaves" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>PlanetWaves.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PlanetWavesPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>PlanetWavesPortrait.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="FMTTM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>FMTTM.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -391,12 +397,6 @@
   <data name="AOBTDPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>AOBTDPortrait.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="AOBTD" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>AOBTD.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AOBTDPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>AOBTDPortrait.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="HeyYa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>HeyYa.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -409,6 +409,75 @@
   <data name="SpaceTruckinIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>SpaceTruckinIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="GreenDay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>GreenDay.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GreenDayPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>GreenDayPortrait.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GreenDayProj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>GreenDayProj.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GreenDayProj2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>GreenDayProj2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GreenDayProj3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>GreenDayProj3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TooCold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>TooCold.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TooColdPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>TooColdPortrait.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PIB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>PIB.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PIBAA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>PIBAA.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PIBI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>PIBI.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dynamite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Dynamite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DynamitePor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>DynamitePor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DynamiteProj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>DynamiteProj.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DynamiteFrag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>DynamiteFrag.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DynamiteFragFragFrag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>DynamiteFragFragFrag.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Gold.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GoldProj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>GoldProj.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GoldPor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>GoldPor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CrazyDiamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CrazyDiamond.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CrazyDiamondPor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CrazyDiamondPor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CrazyDiamondShuriken" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CrazyDiamondShuriken.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="KillerQueen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>KillerQueen.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="KillerQueenPor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>KillerQueenPor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="shader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>shader.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -417,6 +486,9 @@
   </data>
   <data name="particlesystem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>particlesystem.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="t6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>t6.bundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="energy0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Energy\energy0.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "GodlyTowers": {
+      "commandName": "Project",
+      "commandLineArgs": "--melonloader.launchdebugger",
+      "workingDirectory": "Z:\\Program Files (x86)\\Steam\\steamapps\\common\\BloonsTD6"
+    }
+  }
+}

@@ -9,11 +9,15 @@
     <Import_RootNamespace>BTD6E_Module_Helper</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)NumberExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)globals.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HelpedAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Il2CppExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InternalVerification.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Module Helper Information.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TextureExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TowerExtensions.cs" />
   </ItemGroup>
 </Project>

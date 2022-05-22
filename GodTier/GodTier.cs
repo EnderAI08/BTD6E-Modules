@@ -1,7 +1,7 @@
-﻿global using GodlyTowers.Util;
-global using GodlyTowers.Models;
+﻿global using GodlyTowers.Models;
 global using GodlyTowers.Towers;
 global using GodlyTowers.Towers.BloonsTubers;
+global using GodlyTowers.Util;
 
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
 [assembly: MelonInfo(typeof(GodTier.GodTier), "God Tiers", "1.6", "1330 Studios LLC")]
@@ -18,6 +18,8 @@ namespace GodTier {
             TobeyMaguireSM.Assets = AssetBundle.LoadFromMemory(Models.tobeymaguirespiderman);
             Thanos.Assets = AssetBundle.LoadFromMemory(Models.thanos);
             Steve.Assets = AssetBundle.LoadFromMemory(Models.steve);
+            Shrek.Assets = AssetBundle.LoadFromMemory(Models.shrek);
+            Mechagodzilla.Assets = AssetBundle.LoadFromMemory(Models.mechagodzilla);
 
             Tewtiy.PrototypeUDN_Patch.Init();
         }
@@ -67,8 +69,8 @@ namespace GodTier {
             public static void Postfix(ref StandardTowerPurchaseButton __instance) {
                 __instance.bg = __instance.gameObject.GetComponent<Image>();
 
-                if (__instance.baseTowerModel.emoteSpriteLarge != null)
-                    switch (__instance.baseTowerModel.emoteSpriteLarge.guidRef) {
+                if (__instance.towerModel.emoteSpriteLarge != null)
+                    switch (__instance.towerModel.emoteSpriteLarge.guidRef) {
                         case "Dark":
                             __instance.bg.overrideSprite = LoadSprite(LoadTextureFromBytes(GodlyTowers.Properties.Resources.TowerContainerDark));
                             break;
@@ -147,7 +149,6 @@ namespace GodTier {
                             unlockedUpgrades.Add(upgrade.name);
                     }
                 }
-
             }
         }
 
@@ -158,6 +159,8 @@ namespace GodTier {
                 bloonstubers.Add(Tewtiy.InitializeTowers(ref __result));
 
                 towers.Add(Godzilla.GetTower(__result));
+                towers.Add(Mechagodzilla.GetTower(__result));
+                towers.Add(Shrek.GetTower(__result));
                 towers.Add(Spider_Man.GetTower(__result));
                 towers.Add(Carnage.GetTower(__result));
                 towers.Add(Venom.GetTower(__result));
@@ -201,6 +204,7 @@ namespace GodTier {
                     }
                     if (__instance.upgrade == null) return;
                     if (__instance.upgrade.name == null) return;
+
                     __instance.purchaseArrowGlow.active = CustomUpgrades.ContainsKey(__instance.upgrade.name);
                     if (CustomUpgrades.ContainsKey(__instance.upgrade.name)) {
                         string resourceName = "";
@@ -233,8 +237,6 @@ namespace GodTier {
                         __instance.backgroundActive = new("Ui[GreenArrowBtn]");
                         __instance.background.overrideSprite = null;
                     }
-
-                    return;
                 }
             }
 

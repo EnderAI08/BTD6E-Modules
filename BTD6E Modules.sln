@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31521.260
+VisualStudioVersion = 17.1.32127.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalTiers", "AdditionalTiers\AdditionalTiers.csproj", "{3FE2743E-4B45-4EB3-811B-27C37D25102B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdditionalTiers", "AdditionalTiers\AdditionalTiers.csproj", "{3FE2743E-4B45-4EB3-811B-27C37D25102B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps", "Maps\Maps.csproj", "{549D9653-6933-406E-BA55-C6D8082DF2DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodlyTowers", "GodTier\GodlyTowers.csproj", "{4A39B5EF-7E0B-428F-8A29-01E022575D36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GodlyTowers", "GodTier\GodlyTowers.csproj", "{4A39B5EF-7E0B-428F-8A29-01E022575D36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalBloons", "AdditionalBloons\AdditionalBloons.csproj", "{914D432B-BF4B-4CBB-8709-5229F7D4483B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdditionalBloons", "AdditionalBloons\AdditionalBloons.csproj", "{914D432B-BF4B-4CBB-8709-5229F7D4483B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A74BA54D-66D6-4AD5-AECE-A74F2E7384B2}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,12 +20,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetTowers", "PetTowers\PetT
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BTD6E Module Helper", "BTD6E Module Helper\BTD6E Module Helper.shproj", "{19803A05-C28B-49E1-90C3-230564DEABFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultra Powers", "Ultra Powers\Ultra Powers.csproj", "{75705BDC-78BE-4685-9DC4-81D899612F2E}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		BTD6E Module Helper\BTD6E Module Helper.projitems*{19803a05-c28b-49e1-90c3-230564deabfd}*SharedItemsImports = 13
-		BTD6E Module Helper\BTD6E Module Helper.projitems*{3fe2743e-4b45-4eb3-811b-27c37d25102b}*SharedItemsImports = 4
-		BTD6E Module Helper\BTD6E Module Helper.projitems*{4a39b5ef-7e0b-428f-8a29-01e022575d36}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -72,11 +69,27 @@ Global
 		{B83A67C1-8C96-4B49-835A-FB02275DA8F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B83A67C1-8C96-4B49-835A-FB02275DA8F1}.Release|x64.ActiveCfg = Release|Any CPU
 		{B83A67C1-8C96-4B49-835A-FB02275DA8F1}.Release|x64.Build.0 = Release|Any CPU
+		{75705BDC-78BE-4685-9DC4-81D899612F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75705BDC-78BE-4685-9DC4-81D899612F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75705BDC-78BE-4685-9DC4-81D899612F2E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{75705BDC-78BE-4685-9DC4-81D899612F2E}.Debug|x64.Build.0 = Debug|Any CPU
+		{75705BDC-78BE-4685-9DC4-81D899612F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75705BDC-78BE-4685-9DC4-81D899612F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75705BDC-78BE-4685-9DC4-81D899612F2E}.Release|x64.ActiveCfg = Release|Any CPU
+		{75705BDC-78BE-4685-9DC4-81D899612F2E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4861E30-BA84-4710-A302-2DD03A25C511}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		BTD6E Module Helper\BTD6E Module Helper.projitems*{19803a05-c28b-49e1-90c3-230564deabfd}*SharedItemsImports = 13
+		BTD6E Module Helper\BTD6E Module Helper.projitems*{3fe2743e-4b45-4eb3-811b-27c37d25102b}*SharedItemsImports = 5
+		BTD6E Module Helper\BTD6E Module Helper.projitems*{4a39b5ef-7e0b-428f-8a29-01e022575d36}*SharedItemsImports = 5
+		BTD6E Module Helper\BTD6E Module Helper.projitems*{75705bdc-78be-4685-9dc4-81d899612f2e}*SharedItemsImports = 5
+		BTD6E Module Helper\BTD6E Module Helper.projitems*{914d432b-bf4b-4cbb-8709-5229f7d4483b}*SharedItemsImports = 5
+		BTD6E Module Helper\BTD6E Module Helper.projitems*{b83a67c1-8c96-4b49-835a-fb02275da8f1}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

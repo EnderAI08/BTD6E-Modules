@@ -483,6 +483,56 @@ namespace AdditionalTiers.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Dynamite {
+            get {
+                object obj = ResourceManager.GetObject("Dynamite", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DynamiteFrag {
+            get {
+                object obj = ResourceManager.GetObject("DynamiteFrag", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DynamiteFragFragFrag {
+            get {
+                object obj = ResourceManager.GetObject("DynamiteFragFragFrag", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DynamitePor {
+            get {
+                object obj = ResourceManager.GetObject("DynamitePor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DynamiteProj {
+            get {
+                object obj = ResourceManager.GetObject("DynamiteProj", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] energy0 {
             get {
                 object obj = ResourceManager.GetObject("energy0", resourceCulture);
@@ -1313,6 +1363,86 @@ namespace AdditionalTiers.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Gold {
+            get {
+                object obj = ResourceManager.GetObject("Gold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GoldPor {
+            get {
+                object obj = ResourceManager.GetObject("GoldPor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GoldProj {
+            get {
+                object obj = ResourceManager.GetObject("GoldProj", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GreenDay {
+            get {
+                object obj = ResourceManager.GetObject("GreenDay", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GreenDayPortrait {
+            get {
+                object obj = ResourceManager.GetObject("GreenDayPortrait", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GreenDayProj {
+            get {
+                object obj = ResourceManager.GetObject("GreenDayProj", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GreenDayProj2 {
+            get {
+                object obj = ResourceManager.GetObject("GreenDayProj2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GreenDayProj3 {
+            get {
+                object obj = ResourceManager.GetObject("GreenDayProj3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] HeyYa {
             get {
                 object obj = ResourceManager.GetObject("HeyYa", resourceCulture);
@@ -1446,6 +1576,56 @@ namespace AdditionalTiers.Resources {
         internal static byte[] particlesystem {
             get {
                 object obj = ResourceManager.GetObject("particlesystem", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PIB {
+            get {
+                object obj = ResourceManager.GetObject("PIB", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PIBAA {
+            get {
+                object obj = ResourceManager.GetObject("PIBAA", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PIBI {
+            get {
+                object obj = ResourceManager.GetObject("PIBI", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PlanetWaves {
+            get {
+                object obj = ResourceManager.GetObject("PlanetWaves", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PlanetWavesPortrait {
+            get {
+                object obj = ResourceManager.GetObject("PlanetWavesPortrait", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1666,6 +1846,36 @@ namespace AdditionalTiers.Resources {
         internal static byte[] SurvivorIcon {
             get {
                 object obj = ResourceManager.GetObject("SurvivorIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] t6 {
+            get {
+                object obj = ResourceManager.GetObject("t6", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TooCold {
+            get {
+                object obj = ResourceManager.GetObject("TooCold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TooColdPortrait {
+            get {
+                object obj = ResourceManager.GetObject("TooColdPortrait", resourceCulture);
                 return ((byte[])(obj));
             }
         }

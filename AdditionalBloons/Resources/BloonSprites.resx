@@ -1,39 +1,96 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:element name="root" msdata:IsDataSet="true">
             
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>1.3</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="Coconut1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Coconut\Coconut1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </data>
-    <data name="Coconut2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Coconut\Coconut2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </data>
-    <data name="Coconut3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Coconut\Coconut3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </data>
-    <data name="Coconut4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Coconut\Coconut4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </data>
-    <data name="Coconut5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Coconut\Coconut5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </data>
-    <data name="CoconutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Coconut\CoconutIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </data>
+      </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+      <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Coconut1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Coconut\Coconut1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Coconut2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Coconut\Coconut2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Coconut3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Coconut\Coconut3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Coconut4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Coconut\Coconut4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Coconut5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Coconut\Coconut5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CoconutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Coconut\CoconutIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FireBAD0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>FireBAD\FireBAD0.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FireBAD1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>FireBAD\FireBAD1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FireBAD2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>FireBAD\FireBAD2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FireBAD3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>FireBAD\FireBAD3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FireBAD4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>FireBAD\FireBAD4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FireBADIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>FireBAD\FireBADIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dontavious0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Dontavious Farcleton\Dontavious0.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dontavious1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Dontavious Farcleton\Dontavious1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dontavious2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Dontavious Farcleton\Dontavious2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dontavious3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Dontavious Farcleton\Dontavious3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dontavious4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Dontavious Farcleton\Dontavious4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DontaviousIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Dontavious Farcleton\DontaviousIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopBAD0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CopBAD\CopBAD0.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopBAD1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CopBAD\CopBAD1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopBAD2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CopBAD\CopBAD2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopBAD3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CopBAD\CopBAD3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopBAD4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CopBAD\CopBAD4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopBADIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CopBAD\CopBADIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="JailBars" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>CopBAD\JailBars.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

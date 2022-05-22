@@ -221,6 +221,96 @@ namespace AdditionalTiers.Tasks {
                     for (int i = 0; i < udn.genericRenderers.Length; i++)
                         udn.genericRenderers[i].material.SetFloat("_OutlineWidth", 0.02f);
                 }
+            },
+            {
+                "PlanetWaves",
+                udn => {
+                    for (int i = 0; i < udn.genericRenderers.Length; i++)
+                        udn.genericRenderers[i].material.SetFloat("_OutlineWidth", 0.05f);
+                }
+            },
+            {
+                "GreenDay",
+                udn => {
+                    for (int i = 0; i < udn.genericRenderers.Length; i++)
+                        udn.genericRenderers[i].material.SetFloat("_OutlineWidth", 0.05f);
+                }
+            },
+            {
+                "Dynamite",
+                udn => {
+                    for (int i = 0; i < udn.genericRenderers.Length; i++)
+                        udn.genericRenderers[i].material.SetFloat("_OutlineWidth", 0.05f);
+                }
+            },
+            {
+                "TooCold",
+                udn => {
+                    var main = T6SpecificAssets.LoadAsset("TooColdMain");
+                    var sub = T6SpecificAssets.LoadAsset("TooColdSub");
+                    var @static = T6SpecificAssets.LoadAsset("TooColdStatic");
+
+                    {
+                        var obj = Object.Instantiate(main.Cast<GameObject>(), udn.transform);
+                        obj.SetActive(true);
+                        var ps = obj.transform.GetComponentInChildren<ParticleSystem>();
+                        ps.transform.localScale = new(10, 0, 10);
+
+                        var pos = ps.transform.position;
+
+                        pos.y += 2.1f;
+
+                        ps.transform.position = pos;
+                    }
+                    {
+                        var obj = Object.Instantiate(sub.Cast<GameObject>(), udn.transform);
+                        obj.SetActive(true);
+                        var ps = obj.transform.GetComponentInChildren<ParticleSystem>();
+                        ps.transform.localScale = new(10, 0, 10);
+
+                        var pos = ps.transform.position;
+
+                        pos.y += 2.2f;
+
+                        ps.transform.position = pos;
+                    }
+                    {
+                        var obj = Object.Instantiate(@static.Cast<GameObject>(), udn.transform);
+                        obj.SetActive(true);
+                        var ps = obj.transform.GetComponentInChildren<ParticleSystem>();
+                        ps.transform.localScale = new(10, 0, 10);
+
+                        var pos = ps.transform.position;
+
+                        pos.y += 2.0f;
+
+                        ps.transform.position = pos;
+                    }
+
+                    for (int i = 0; i < udn.genericRenderers.Length; i++) {
+                        udn.genericRenderers[i].material.SetFloat("_OutlineWidth", 0.005f);
+                        udn.genericRenderers[i].material.SetColor("_OutlineColor", SpecialColors["TooCold"]);
+                    }
+                }
+            },
+            {
+                "KillerQueen",
+                udn => {
+                    for (int i = 0; i < udn.genericRenderers.Length; i++) {
+                        udn.genericRenderers[i].material.SetFloat("_OutlineWidth", 0.5f);
+                    }
+                }
+            },
+            {
+                "CrazyDiamond",
+                udn => {
+                    var main = T6SpecificAssets.LoadAsset("DSparkle");
+
+                    var obj = Object.Instantiate(main.Cast<GameObject>(), udn.transform);
+                    obj.SetActive(true);
+                    var ps = obj.transform.GetComponentInChildren<ParticleSystem>();
+                    ps.transform.localScale = new(10, 10, 10);
+                }
             }
         };
         [HideFromIl2Cpp]
@@ -248,7 +338,8 @@ namespace AdditionalTiers.Tasks {
             { "BurningDownTheHouse", new Color32(0, 254, 254, 255) },
             { "SheerHeartAttack", new Color32(206, 141, 0, 255) },
             { "AOBTD", new Color32(162, 0, 255, 255) },
-            { "SpaceTruckin", new Color32(255, 25, 25, 255) }
+            { "SpaceTruckin", new Color32(255, 25, 25, 255) },
+            { "TooCold", new Color32(55, 182, 237, 255) }
         };
 
         public static Color GetResetColor(DisplayBehavior beh) {
@@ -287,6 +378,16 @@ namespace AdditionalTiers.Tasks {
             }
         }
 
+        private static AssetBundle _t6specificassets = null;
+
+        public static AssetBundle T6SpecificAssets {
+            get {
+                if (_t6specificassets == null)
+                    _t6specificassets = AssetBundle.LoadFromMemory(Images.t6);
+                return _t6specificassets;
+            }
+        }
+
         private static Object[] _particles = null;
         public static Object[] Particles {
             get {
@@ -309,10 +410,50 @@ namespace AdditionalTiers.Tasks {
         public sealed class DisplayFactory {
             public static bool hasBeenBuilt;
             public static List<AssetInfo> allAssetsKnown = new();
+            public static Dictionary<string, UnityDisplayNode> cachedSRs = new();
 
             [HarmonyPrefix]
             public static bool Prefix(Factory __instance, string objectId, Il2CppSystem.Action<UnityDisplayNode> onComplete) {
                 var assets = ShaderBundle.LoadAllAssets();
+
+                if (cachedSRs.ContainsKey(objectId)) {
+                    onComplete.Invoke(cachedSRs[objectId]);
+                    return false;
+                }
+
+                if (objectId.StartsWith("MAKE_AQUA_")) {
+                    UnityDisplayNode udn = null;
+                    __instance.FindAndSetupPrototypeAsync(objectId.Replace("MAKE_AQUA_", ""), new Action<UnityDisplayNode>(btdUdn => {
+                        var instance = Object.Instantiate(btdUdn, __instance.PrototypeRoot);
+                        instance.name = objectId + "(Clone)";
+                        instance.isSprite = true;
+                        instance.RecalculateGenericRenderers();
+
+
+                        for (var i = 0; i < instance.genericRenderers.Length; i++) {
+                            if (instance.genericRenderers[i].GetIl2CppType() == Il2CppType.Of<SpriteRenderer>()) {
+                                var sr = instance.genericRenderers[i].Cast<SpriteRenderer>();
+                                var tex = sr.sprite.texture;
+                                var texture = new Texture2D(tex.width, tex.height);
+
+                                var pixels = tex.GetPixels();
+                                for (var aa = 0; aa < pixels.Length; aa++)
+                                    pixels[aa] = new Color(pixels[aa].r.Map(float.Epsilon, 1, float.Epsilon, .2f), pixels[aa].g.Map(float.Epsilon, 1, float.Epsilon, .5f), pixels[aa].b, 255);
+
+                                texture.SetPixels(pixels);
+                                texture.Apply();
+
+                                sr.sprite = SpriteBuilder.createProjectile(texture);
+                            }
+                        }
+
+                        cachedSRs[objectId] = instance;
+
+                        udn = instance;
+                        onComplete.Invoke(udn);
+                    }));
+                    return false;
+                }
 
                 foreach (var curAsset in allAssetsKnown) {
                     if (objectId.Equals(curAsset.CustomAssetName)) {
@@ -391,6 +532,9 @@ namespace AdditionalTiers.Tasks {
                                     if (Actions.ContainsKey(objectId))
                                         Actions[objectId](instance);
 
+                                    if (curAsset.RendererType == RendererType.SPRITERENDERER)
+                                        cachedSRs[objectId] = instance;
+
                                     udn = instance;
                                     onComplete.Invoke(udn);
                                 }));
@@ -408,6 +552,22 @@ namespace AdditionalTiers.Tasks {
                             nudn.RecalculateGenericRenderers();
                             var nktmp = nudn.GetComponentInChildren<NK_TextMeshPro>();
                             nktmp.m_fontColorGradient = new(Color.red, Color.red, new(255, 255, 0), Color.white);
+                            nktmp.capitalize = false;
+                            udn = nudn;
+                            onComplete.Invoke(udn);
+                        }));
+                    return false;
+                }
+                if (objectId.Equals("JackpotText")) {
+                    UnityDisplayNode udn = null;
+                    __instance.FindAndSetupPrototypeAsync("3dcdbc19136c60846ab944ada06695c0",
+                        new Action<UnityDisplayNode>(oudn => {
+                            var nudn = Object.Instantiate(oudn, __instance.PrototypeRoot);
+                            nudn.name = objectId + "(Clone)";
+                            nudn.isSprite = true;
+                            nudn.RecalculateGenericRenderers();
+                            var nktmp = nudn.GetComponentInChildren<NK_TextMeshPro>();
+                            nktmp.m_fontColorGradient = new(new(237, 171, 2), new(255, 200, 15), new(255, 255, 0), Color.white);
                             nktmp.capitalize = false;
                             udn = nudn;
                             onComplete.Invoke(udn);

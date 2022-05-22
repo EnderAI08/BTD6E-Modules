@@ -43,7 +43,7 @@
             Steve.radius = 8;
             Steve.cost = 800;
             Steve.range = 35;
-            Steve.mods = new ApplyModModel[0];
+            Steve.mods = Array.Empty<ApplyModModel>();
             Steve.upgrades = new UpgradePathModel[] { new("Acquire Hardware", name + "-100") };
 
             for (var i = 0; i < Steve.behaviors.Count; i++) {
@@ -100,7 +100,7 @@
             Steve.tier = 1;
             Steve.tiers = new[] { 1, 0, 0 };
             Steve.range = 35;
-            Steve.mods = new ApplyModModel[0];
+            Steve.mods = Array.Empty<ApplyModModel>();
             Steve.upgrades = new UpgradePathModel[] { new("Take Aim", name + "-200") };
 
             for (var i = 0; i < Steve.behaviors.Count; i++) {
@@ -303,8 +303,8 @@
             Steve.radius = 8;
             Steve.cost = 800;
             Steve.range = 85;
-            Steve.mods = new ApplyModModel[0];
-            Steve.upgrades = new UpgradePathModel[] {};
+            Steve.mods = Array.Empty<ApplyModModel>();
+            Steve.upgrades = Array.Empty<UpgradePathModel>();
 
             var bomb = gameModel.towers.First(a => a.name.Contains("Bomb")).behaviors.First(a => a.Is<AttackModel>(out _)).CloneCast<AttackModel>().weapons[0].projectile;
             var mortar = gameModel.towers.First(a => a.name.Contains("MortarMonkey-002")).behaviors.First(a => a.Is<AttackModel>(out _)).CloneCast<AttackModel>().weapons[0].projectile;

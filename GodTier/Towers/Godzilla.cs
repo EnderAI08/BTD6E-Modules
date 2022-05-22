@@ -397,7 +397,7 @@
             var udn = Object.Instantiate(Assets.LoadAsset("Godzilla").Cast<GameObject>(), transform).AddComponent<UnityDisplayNode>();
             udn.Active = false;
             udn.transform.position = new(-3000, 0);
-            udn.gameObject.AddComponent<SetScale7>();
+            udn.gameObject.AddComponent<SetScaleG>();
             return udn;
         }
 
@@ -461,28 +461,10 @@
                     if (__instance.weaponModel.name.EndsWith("Swipe")) {
                         __instance.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
                         __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("swipe");
-                        var wait = 2300f;
-                        new Thread(async () => {
-                            while (wait > 0) {
-                                wait -= TimeManager.timeScaleWithoutNetwork + 1;
-                                await Task.Delay(1).ConfigureAwait(false);
-                            }
-
-                            __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("start");
-                        }).Start();
                     }
                     if (__instance.weaponModel.name.EndsWith("Breath")) {
                         __instance.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
                         __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("fireball");
-                        var wait = 2300f;
-                        new Thread(async () => {
-                            while (wait > 0) {
-                                wait -= TimeManager.timeScaleWithoutNetwork + 1;
-                                await Task.Delay(1).ConfigureAwait(false);
-                            }
-
-                            __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("start");
-                        }).Start();
                     }
                 } catch (Exception) { }
             }

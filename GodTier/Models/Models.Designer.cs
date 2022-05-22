@@ -129,13 +129,33 @@ namespace GodlyTowers.Models {
                 return ((byte[])(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] venom {
             get {
                 object obj = ResourceManager.GetObject("venom", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] shrek {
+            get {
+                object obj = ResourceManager.GetObject("shrek", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mechagodzilla {
+            get {
+                object obj = ResourceManager.GetObject("mechagodzilla", resourceCulture);
                 return ((byte[])(obj));
             }
         }

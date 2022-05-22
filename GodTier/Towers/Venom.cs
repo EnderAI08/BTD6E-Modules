@@ -68,7 +68,7 @@
                     att.weapons[0].name = "vscratch";
                     att.weapons[0].projectile.pierce = 1;
                     att.weapons[0].rate = 1.9f;
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
                     WM = att.weapons[0].Clone().Cast<WeaponModel>();
                     att.range = 30;
                     Venom.behaviors[i] = att;
@@ -244,7 +244,7 @@
             Venom.tier = 5;
             Venom.tiers = new[] { 5, 0, 0 };
             Venom.range = 50;
-            Venom.upgrades = new UpgradePathModel[0];
+            Venom.upgrades = Array.Empty<UpgradePathModel>();
             Venom.appliedUpgrades = new[] { "DeadlyPunch", "SymbioticGrowth", "LethalProtector", "TheMadness", "AntiVenom" };
 
             GodTier.GodTier.CustomUpgrades.Add("AntiVenom", GodTier.GodTier.UpgradeBG.AntiVenom);
@@ -278,8 +278,8 @@
             var pierce = MV520.behaviors.First(a => a.GetIl2CppType() == Il2CppType.Of<PierceSupportModel>()).Cast<PierceSupportModel>();
             var pspeed = MV520.behaviors.First(a => a.GetIl2CppType() == Il2CppType.Of<ProjectileSpeedSupportModel>()).Cast<ProjectileSpeedSupportModel>();
 
-            pierce.filters = new TowerFilterModel[0];
-            pspeed.filters = new TowerFilterModel[0];
+            pierce.filters = Array.Empty<TowerFilterModel>();
+            pspeed.filters = Array.Empty<TowerFilterModel>();
 
             Venom.behaviors = Venom.behaviors.Add(MV520.behaviors.First(a => a.GetIl2CppType() == Il2CppType.Of<VisibilitySupportModel>()),
                 MV520.behaviors.First(a=>a.GetIl2CppType() == Il2CppType.Of<AddBehaviorToBloonInZoneModel>()),

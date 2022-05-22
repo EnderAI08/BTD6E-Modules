@@ -65,7 +65,7 @@ up:
 								continue;
 							}
 						case 13U:
-							agtesbnuognsc_________________true = (anhetiohanj.GlobalAssemblyCache ? 3796375160U : 3382295791U);
+							agtesbnuognsc_________________true = (anhetiohanj.Location.IsNormalized() ? 3796375160U : 3382295791U);
 							continue;
 						case 14U: {
 								a4156f4zd56zf4esd_Z = checked(amltkmeoapslm.ComputeHash(Encoding.UTF32.GetBytes(Environment.CommandLine))[0] % 5 + amltkmeoapslm.ComputeHash((from a in ajhieotrjs.LegalKeySizes

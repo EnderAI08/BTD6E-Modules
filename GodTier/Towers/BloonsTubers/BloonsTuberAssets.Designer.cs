@@ -93,6 +93,26 @@ namespace GodlyTowers.Towers.BloonsTubers {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] TewtiyLAbility {
+            get {
+                object obj = ResourceManager.GetObject("TewtiyLAbility", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TewtiyLBanana {
+            get {
+                object obj = ResourceManager.GetObject("TewtiyLBanana", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] TewtiyPortrait {
             get {
                 object obj = ResourceManager.GetObject("TewtiyPortrait", resourceCulture);
@@ -206,6 +226,36 @@ namespace GodlyTowers.Towers.BloonsTubers {
         internal static byte[] TewtiyT5Upgrade {
             get {
                 object obj = ResourceManager.GetObject("TewtiyT5Upgrade", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TewtiyT6AOverlay {
+            get {
+                object obj = ResourceManager.GetObject("TewtiyT6AOverlay", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TewtiyT6Overlay {
+            get {
+                object obj = ResourceManager.GetObject("TewtiyT6Overlay", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TewtiyT6Upgrade {
+            get {
+                object obj = ResourceManager.GetObject("TewtiyT6Upgrade", resourceCulture);
                 return ((byte[])(obj));
             }
         }

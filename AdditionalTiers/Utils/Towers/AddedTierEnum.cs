@@ -1,30 +1,38 @@
 ﻿namespace AdditionalTiers.Utils.Towers {
     public enum AddedTierEnum : long {
-        BIGJUGGUS = 100000,
-        BLACKHOLESUN = 100000,
-        NINJASEXPARTY = 100000,
-        POINTOFNORETURN = 100000,
-        SKYHIGH = 100000,
-        SUPERFLY = 50000,
-        SURVIVOR = 100000,
-        UNDERWORLD = 100000,
-        WHITEWEDDING = 1000000,
-        YELLOWSUBMARINE = 100000,
-        WHITESNAKE = 100000,
-        SCARYMONSTERS = 100000,
-        THEGOLDEXPERIENCE = 1000000,
-        TUSK = 1000000,
-        BTD4SUNGOD = 100000,
-        MRROBOTO = 1000000,
-        VITAMINC = 1000000,
-        DAFTPUNK = 1000000,
-        BLACKANDYELLOW = 100000,
-        FLYMETOTHEMOON = 1000000,
-        BURNINGDOWNTHEHOUSE = 100000,
-        SHEERHEARTATTACK = 100000,
-        ANOTHERONEBITESTHEDUST = 100000,
-        HEYYA = 100000,
-        SPACETRUCKIN = 100000
+        BIGJUGGUS =                 100000,
+        BLACKHOLESUN =              100000,
+        NINJASEXPARTY =             100000,
+        POINTOFNORETURN =           100000,
+        SKYHIGH =                   100000,
+        SUPERFLY =                  50000,
+        SURVIVOR =                  100000,
+        UNDERWORLD =                100000,
+        WHITEWEDDING =              1000000,
+        YELLOWSUBMARINE =           100000,
+        WHITESNAKE =                100000,
+        SCARYMONSTERS =             100000,
+        THEGOLDEXPERIENCE =         1000000,
+        TUSK =                      1000000,
+        BTD4SUNGOD =                100000,
+        MRROBOTO =                  1000000,
+        VITAMINC =                  1000000,
+        DAFTPUNK =                  1000000,
+        BLACKANDYELLOW =            100000,
+        FLYMETOTHEMOON =            1000000,
+        BURNINGDOWNTHEHOUSE =       100000,
+        SHEERHEARTATTACK =          100000,
+        ANOTHERONEBITESTHEDUST =    100000,
+        HEYYA =                     100000,
+        SPACETRUCKIN =              100000,
+        PLANETWAVES =               100000,
+        GREENDAY =                  100000,
+        TOOCOLD =                   100000,
+        PAINTITBLACK =              100000,
+        DYNAMITE =                  100000,
+        GOLD =                      100000,
+        CRAZYDIAMOND =              1000000,
+        KILLERQUEEN =               100000
     }
 
     public sealed class AddedTierName {
@@ -53,5 +61,13 @@
         public static readonly string ANOTHERONEBITESTHEDUST = "SniperMonkey-502";
         public static readonly string HEYYA = "BoomerangMonkey-205";
         public static readonly string SPACETRUCKIN = "MortarMonkey-502";
+        public static readonly string PLANETWAVES = "MonkeySub-520";
+        public static readonly string GREENDAY = "TackShooter-052";
+        public static readonly string TOOCOLD = "IceMonkey-520";
+        public static readonly string PAINTITBLACK = "MonkeyAce-250";
+        public static readonly string DYNAMITE = "BombShooter-502";
+        public static readonly string GOLD = "IceMonkey-205";
+        public static readonly string CRAZYDIAMOND = "NinjaMonkey-Paragon";
+        public static readonly string KILLERQUEEN = "SpikeFactory-500";
     }
 }

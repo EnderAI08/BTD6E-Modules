@@ -44,28 +44,26 @@ namespace Maps.Maps {
         [HarmonyPatch(typeof(MapLoader), nameof(MapLoader.Load))]
         public class MapLoad_Patch {
             [HarmonyPrefix]
-            public static bool Prefix(MapLoader __instance, string map, Il2CppSystem.Action<MapModel> loadedCallback) {
-                if (map.Equals(Name)) {
-                    __instance.currentMapName = map;
-
+            public static bool Prefix(MapLoader __instance) {
+                if (__instance.currentMapName.Equals(Name)) {
                     PointInfo[] Path2 = Path1.Reversed();
-                    var mapModel = new MapModel(map, new AreaModel[] {
-                            new("Whole", AreaWhole, 0, AreaType.water),
-                            new("UP1", AreaUp1, 0, AreaType.unplaceable),
-                            new("UP2", AreaUp2, 0, AreaType.unplaceable),
-                            new("UP3", AreaUp3, 0, AreaType.unplaceable),
-                            new("UP4", AreaUp4, 0, AreaType.unplaceable),
-                            new("Crate", AreaCrate, 0, AreaType.land),
-                            new("Barrel", AreaBarrel, 0, AreaType.land),
-                            new("Rock1", AreaSRock, 0, AreaType.land),
-                            new("Rock2", AreaMRock, 0, AreaType.land),
-                            new("Rock3", AreaLRock, 0, AreaType.land),
-                            new("Rock4", AreaTRock1, 0, AreaType.land),
-                            new("Rock5", AreaTRock2, 0, AreaType.land),
-                            new("WatchTower", AreaWatchTowerTop, 0, AreaType.land),
-                            new("LeftShip", AreaLeftShip, 0, AreaType.land),
-                            new("RightShip", AreaRightShip, 0, AreaType.land),
-                            new("Straight1", AreaStraight1, 0, AreaType.track)
+                    var mapModel = new MapModel(__instance.currentMapName, new AreaModel[] {
+                            new("Whole", AreaWhole, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.water),
+                            new("UP1", AreaUp1, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.unplaceable),
+                            new("UP2", AreaUp2, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.unplaceable),
+                            new("UP3", AreaUp3, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.unplaceable),
+                            new("UP4", AreaUp4, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.unplaceable),
+                            new("Crate", AreaCrate, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Barrel", AreaBarrel, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Rock1", AreaSRock, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Rock2", AreaMRock, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Rock3", AreaLRock, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Rock4", AreaTRock1, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Rock5", AreaTRock2, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("WatchTower", AreaWatchTowerTop, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("LeftShip", AreaLeftShip, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("RightShip", AreaRightShip, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.land),
+                            new("Straight1", AreaStraight1, new UnhollowerBaseLib.Il2CppReferenceArray<Polygon>(0), 0, AreaType.track)
                     }, new BlockerModel[0], new CoopAreaLayoutModel[]
                         {
                             new(new CoopAreaModel[] {new(0, AreaWhole, new())}, AreaLayoutType.FREE_FOR_ALL)
@@ -76,9 +74,8 @@ namespace Maps.Maps {
                     }, new RemoveableModel[0], new MapGizmoModel[0], 0
                     , new("", new("", new string[] { "Path1", "Path2" }), new("", new string[] { "Path1", "Path2" }))
                     , new MapEventModel[0], 1);
-                    loadedCallback.Invoke(mapModel);
 
-                    SceneManager.LoadScene(map, new LoadSceneParameters {
+                    SceneManager.LoadScene(__instance.currentMapName, new LoadSceneParameters {
                         loadSceneMode = LoadSceneMode.Additive,
                         localPhysicsMode = LocalPhysicsMode.None
                     });

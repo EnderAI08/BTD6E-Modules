@@ -130,7 +130,13 @@
     <data name="Daffodils" type="System.Resources.ResXFileRef, System.Windows.Forms">
         <value>..\Resources\POR\Daffodils.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </data>
-    <data name="BigFoot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\Resources\POR\BigFoot.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </data>
+  <data name="BigFoot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POR\BigFoot.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PVZGarden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POR\PVZGarden.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CursedMeadows" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POR\CursedMeadows.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

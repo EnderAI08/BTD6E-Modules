@@ -64,7 +64,7 @@ namespace GodlyTowers.Towers {
                     att.weapons[0].name = "spidermanpunch";
                     att.weapons[0].projectile.pierce = 1;
                     att.weapons[0].rate = 1.75f;
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
                     att.weapons[0].projectile.display = "";
                     att.weapons[0].projectile.radius = 2f;
                     foreach (var pb in att.weapons[0].projectile.behaviors) {
@@ -251,7 +251,7 @@ namespace GodlyTowers.Towers {
             spiderman.tiers = new[] { 5, 0, 0 };
             spiderman.range = 50;
             spiderman.appliedUpgrades = new[] { "Wise Words of Encouragement", "True Perseverance", "Sacrifices", "Just The Basics", "Symbiote Suit" };
-            spiderman.upgrades = new UpgradePathModel[0];
+            spiderman.upgrades = Array.Empty<UpgradePathModel>();
 
             for (var i = 0; i < spiderman.behaviors.Count; i++) {
                 var b = spiderman.behaviors[i];

@@ -64,7 +64,7 @@ namespace GodlyTowers.Towers {
                     att.weapons[0].name = "thanospunch";
                     att.weapons[0].projectile.pierce = 1;
                     att.weapons[0].rate = 0.5f;
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
                     att.weapons[0].projectile.display = "";
                     att.weapons[0].projectile.radius = 2f;
                     foreach (var pb in att.weapons[0].projectile.behaviors) {
@@ -284,7 +284,7 @@ namespace GodlyTowers.Towers {
             thanos.tiers = new[] { 5, 0, 0 };
             thanos.range = 50;
             thanos.appliedUpgrades = new[] { "Space Stone", "Reality Stone", "Soul Stone", "Time Stone", "Mind Stone" };
-            thanos.upgrades = new UpgradePathModel[0];
+            thanos.upgrades = Array.Empty<UpgradePathModel>();
 
             GodTier.GodTier.CustomUpgrades.Add("Mind Stone", GodTier.GodTier.UpgradeBG.MindStone);
 

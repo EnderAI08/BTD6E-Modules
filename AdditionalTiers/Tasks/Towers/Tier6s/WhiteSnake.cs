@@ -86,7 +86,7 @@
                                 new LightningModel("LM_", 5, new ArcEmissionModel("AEM_", 3, 0, 360, null, false), 360, 5),
                                 new DamagePercentOfMaxModel("DPOMM_", 0.25f, new string[] { "Moabs" }, false),
                                 new DistributeToChildrenBloonModifierModel("DTCBMM_", "Moabs"),
-                                new WindModel("WM_", 50, 150, 1, true, new(), 1));
+                                new WindModel("WM_", 50, 150, 1, true, "", 1));
 
                             am.weapons[j] = we;
                         }

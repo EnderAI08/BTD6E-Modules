@@ -38,7 +38,7 @@
 
         public static TowerModel GetT0(GameModel gameModel) {
             var ttu = gameModel.towers.First(tower => tower.name.Equals("SniperMonkey")).Clone().Cast<TowerModel>();
-            ttu.mods = new ApplyModModel[0];
+            ttu.mods = Array.Empty<ApplyModModel>();
             ttu.name = name;
             ttu.baseId = name;
             ttu.portrait = new SpriteReference("GrimReaperIcon");
@@ -55,8 +55,8 @@
                     var att = ttu.behaviors[i].Cast<AttackModel>();
                     att.weapons[0].rate = 0.95f;
                     att.weapons[0].rate *= 5;
-                    att.weapons[0].behaviors = new WeaponBehaviorModel[0];
-                    att.weapons[0].projectile.filters = new FilterModel[0];
+                    att.weapons[0].behaviors = Array.Empty<WeaponBehaviorModel>();
+                    att.weapons[0].projectile.filters = Array.Empty<FilterModel>();
                     att.range = ttu.range;
                     att.weapons[0].projectile.pierce = 99999999;
                     att.weapons[0].projectile.ignorePierceExhaustion = true; // Might be redundant
@@ -156,7 +156,7 @@
             ttu.tiers = new int[] { 5, 0, 0 };
             ttu.display = "GrimReaper5";
             ttu.appliedUpgrades = new string[] { "Stronger Souls", "Infernal Flames", "Fast Death", "Bring Back The Dead", "Rage of The Fallen" };
-            ttu.upgrades = new UpgradePathModel[] { };
+            ttu.upgrades = Array.Empty<UpgradePathModel>();
 
             for (int i = 0; i < ttu.behaviors.Length; i++) {
                 if (ttu.behaviors[i].GetIl2CppType() == Il2CppType.Of<AttackModel>()) {

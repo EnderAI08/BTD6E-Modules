@@ -2,7 +2,7 @@
     public sealed class GameI {
         [HarmonyPatch(typeof(GameModelLoader), nameof(GameModelLoader.Load))]
         public static class Loaded {
-            public static GameModel Model { get; set; }
+            public static GameModel Model { get; set; } = null!;
 
             [HarmonyPostfix]
             public static void Postfix(ref GameModel __result) {
@@ -14,7 +14,7 @@
                         try {
                             tower?.gameLoad(__result);
                         } catch (Exception ex) {
-                            Logger13.Error($"Error when trying to initialize {nextOne}, {ex.GetType().Name}");
+                            Logger13.Error($"Error when trying to initialize {nextOne}, {ex.Message}");
                         }
                     }
                 else

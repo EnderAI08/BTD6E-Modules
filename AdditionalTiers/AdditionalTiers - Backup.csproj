@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3FE2743E-4B45-4EB3-811B-27C37D25102B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdditionalTiers</RootNamespace>
+    <AssemblyName>AdditionalTiers</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="..\BTD6E Module Helper\BTD6E Module Helper.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetFileName)" "Z:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\Mods\$(TargetFileName)" /y &gt;NUL
+"Z:\VisualStudio\source\repos\File Padder\File Padder\UTIL INTERNAL 1330\File Padder.exe" "Z:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\Mods\$(TargetFileName)" 10485760</PostBuildEvent>
+  </PropertyGroup>
+  <!-- Anyone who tries to copy my code (Matthew from 1330 Studios LLC) has a small pp -->
+</Project>

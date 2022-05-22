@@ -146,4 +146,58 @@
             }
         }
     }
+
+    [RegisterTypeInIl2Cpp]
+    public class SetScaleT : MonoBehaviour {
+        private const float scale = 1.25f;
+
+        public SetScaleT(IntPtr obj0) : base(obj0) { ClassInjector.DerivedConstructorBody(this); }
+
+        public SetScaleT() : base(ClassInjector.DerivedConstructorPointer<SetScaleT>()) { }
+        private void Start() {
+            if (gameObject != null && gameObject.transform.localScale.z != scale) {
+                gameObject.transform.localScale = new(scale, scale, scale);
+            }
+        }
+
+        private void Update() {
+            if (gameObject != null && gameObject.transform.localScale.z != scale) {
+                gameObject.transform.localScale = new(scale, scale, scale);
+            }
+        }
+    }
+    [RegisterTypeInIl2Cpp]
+    public class SetScaleMG : MonoBehaviour {
+        public SetScaleMG(IntPtr obj0) : base(obj0) { ClassInjector.DerivedConstructorBody(this); }
+
+        public SetScaleMG() : base(ClassInjector.DerivedConstructorPointer<SetScaleMG>()) { }
+        private void Start() {
+            if (gameObject != null && gameObject.transform.localScale.z != 3.33f) {
+                gameObject.transform.localScale = new(3.33f, 3.33f, 3.33f);
+            }
+        }
+
+        private void Update() {
+            if (gameObject != null && gameObject.transform.localScale.z != 3.33f) {
+                gameObject.transform.localScale = new(3.33f, 3.33f, 3.33f);
+            }
+        }
+    }
+    [RegisterTypeInIl2Cpp]
+    public class SetScaleG : MonoBehaviour {
+        public SetScaleG(IntPtr obj0) : base(obj0) { ClassInjector.DerivedConstructorBody(this); }
+
+        public SetScaleG() : base(ClassInjector.DerivedConstructorPointer<SetScaleG>()) { }
+        private void Start() {
+            if (gameObject != null && gameObject.transform.localScale.z != .25f) {
+                gameObject.transform.localScale = new(.25f, .25f, .25f);
+            }
+        }
+
+        private void Update() {
+            if (gameObject != null && gameObject.transform.localScale.z != .25f) {
+                gameObject.transform.localScale = new(.25f, .25f, .25f);
+            }
+        }
+    }
 }
